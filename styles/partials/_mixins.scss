@@ -1,0 +1,37 @@
+@use "./variables" as *;
+@mixin flex($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+@mixin dark-section {
+  background-color: $bandsite-black;
+  color: $white;
+}
+
+@mixin light-section {
+  background-color: $white;
+  color: $bandsite-black;
+}
+
+@mixin header-padding {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  @include tablet {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}

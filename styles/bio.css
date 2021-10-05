@@ -1,2 +1,345 @@
+@font-face {
+  font-family: "Avenir Next Regular";
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir Next Demi";
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir Next Bold";
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
+  font-weight: 700;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
-/*# sourceMappingURL=bio.css.map *//*# sourceMappingURL=bio.css.map */
+h1 {
+  font-family: "Avenir Next Regular";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: lighter;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  h1 {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+
+h2 {
+  font-family: "Avenir Next Demi";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  h2 {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+  }
+}
+
+h3 {
+  font-family: "Avenir Next Demi";
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  h3 {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+p {
+  font-family: "Avenir Next Regular";
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 2.25rem 0;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-top: 1rem;
+  padding-left: 0;
+}
+
+li {
+  padding: 1rem 0;
+  font-family: "Avenir Next Regular";
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #323232;
+  color: #ffffff;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 2.25rem;
+  }
+}
+.nav__logo {
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+}
+@media (min-width: 768px) {
+  .nav__logo {
+    font-size: 2rem;
+    padding: 0;
+    max-height: 3rem;
+    max-width: 10rem;
+  }
+}
+.nav__links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  .nav__links {
+    width: auto;
+  }
+}
+.nav__link {
+  width: 50%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .nav__link {
+    font-size: 1rem;
+    width: auto;
+    padding: 2.25rem 0;
+    margin-left: 4.5rem;
+  }
+}
+
+.current__link {
+  border-bottom: 4px solid #fafafa;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #323232;
+  color: #ffffff;
+  width: 100%;
+  position: relative;
+  padding: 0 1rem;
+}
+@media (min-width: 768px) {
+  footer {
+    padding: 0 2.25rem;
+  }
+}
+
+.social {
+  width: 50%;
+}
+@media (min-width: 768px) {
+  .social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+  }
+}
+.social__icons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .social__icons {
+    width: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.contact__name {
+  padding-bottom: 0;
+  font-family: "Avenir Next Demi";
+}
+.contact__assoc {
+  font-family: "Avenir Next Demi";
+}
+.contact__assoc, .contact__other, .contact__email {
+  padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  .copyright__header {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.25rem;
+    font-size: 1.5rem;
+    padding-top: 0;
+  }
+}
+
+.copyright__details {
+  padding-top: 0;
+  font-size: 0.6875rem;
+}
+
+.hero {
+  background: url(../../assets/images/hero-bio.jpg);
+  position: relative;
+  height: 60vw;
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 768px) {
+  .hero {
+    background-size: 110vw;
+    background-position-x: left;
+    background-position-y: bottom;
+  }
+}
+.hero__overlay {
+  position: absolute;
+  background-color: rgba(50, 50, 50, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.hero__title {
+  margin-left: 1rem;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    margin-left: 2.25rem;
+    font-size: 4.25rem;
+    line-height: 4.25rem;
+  }
+}
+
+.about {
+  background-color: #ffffff;
+  color: #323232;
+  margin: 0 1rem;
+}
+@media (min-width: 768px) {
+  .about {
+    margin: 0 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .about__subsection {
+    margin-left: 3.75rem;
+  }
+}
+.about__image {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+}
+.about__quote {
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .about__quote {
+    padding-bottom: 1rem;
+  }
+}
+.about__speaker {
+  padding: 0;
+}
+.about__article {
+  padding-right: 0.25rem;
+}
+@media (min-width: 768px) {
+  .about__article__paragraphs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.about__article__paragraph {
+  padding-top: 0;
+}
+@media (min-width: 768px) {
+  .about__article__paragraph {
+    width: 45%;
+  }
+}
+
+.gallery {
+  margin: 0 1rem;
+  background-color: #fafafa;
+  color: #323232;
+}
+@media (min-width: 768px) {
+  .gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+.gallery__photo {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  padding: 0.25rem 0;
+}
+@media (min-width: 768px) {
+  .gallery__photo {
+    width: 29.71%;
+    margin: 0.75rem;
+  }
+}/*# sourceMappingURL=bio.css.map */

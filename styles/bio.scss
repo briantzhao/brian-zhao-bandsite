@@ -1,0 +1,94 @@
+@use "./partials/global";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/typography" as *;
+@use "./partials/animations" as *;
+
+.hero {
+  background: url(../../assets/images/hero-bio.jpg);
+  position: relative;
+  height: 60vw;
+  background-size: cover;
+  background-position: center;
+  @include tablet {
+    background-size: 110vw;
+    background-position-x: left;
+    background-position-y: bottom;
+  }
+  &__overlay {
+    position: absolute;
+    background-color: rgba(50, 50, 50, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: $white;
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    margin-left: 1rem;
+    @include tablet {
+      margin-left: 2.25rem;
+      font-size: 4.25rem;
+      line-height: 4.25rem;
+    }
+  }
+}
+.about {
+  @include light-section;
+  margin: 0 1rem;
+  @include tablet {
+    margin: 0 2.25rem;
+  }
+  &__subsection {
+    @include tablet {
+      margin-left: 3.75rem;
+    }
+  }
+  &__image {
+    object-fit: fill;
+    width: 100%;
+  }
+  &__quote {
+    padding-bottom: 0.5rem;
+    @include tablet {
+      padding-bottom: 1rem;
+    }
+  }
+  &__speaker {
+    padding: 0;
+  }
+  &__article {
+    padding-right: 0.25rem;
+    &__paragraphs {
+      @include tablet {
+        @include flex(row, space-around);
+      }
+    }
+    &__paragraph {
+      padding-top: 0;
+      @include tablet {
+        width: 45%;
+      }
+    }
+  }
+}
+.gallery {
+  margin: 0 1rem;
+  background-color: $alabaster;
+  color: $bandsite-black;
+  @include tablet {
+    @include flex(row, space-between);
+    flex-wrap: wrap;
+  }
+  &__photo {
+    object-fit: fill;
+    width: 100%;
+    padding: 0.25rem 0;
+    @include tablet {
+      width: 29.71%;
+      margin: 0.75rem;
+    }
+  }
+}
