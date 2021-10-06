@@ -60,6 +60,10 @@ li {
   font-size: 0.8125rem;
   line-height: 1.125rem;
 }
+.italic {
+  font-style: italic;
+  letter-spacing: 0.2rem;
+}
 .nav {
   @include flex(column, center);
   @include dark-section;
@@ -67,6 +71,9 @@ li {
   @include tablet {
     @include flex(row, flex-start);
     padding: 0 2.25rem;
+  }
+  @include desktop {
+    padding: 0 10vw;
   }
   &__logo {
     max-height: 1.25rem;
@@ -109,13 +116,18 @@ footer {
   @include tablet {
     padding: 0 2.25rem;
   }
+  @include desktop {
+    padding: 0 10vw;
+  }
 }
 .social {
   width: 50%;
   @include tablet {
     @include flex(row, space-between);
-    width: 50%;
     align-items: center;
+  }
+  @include desktop {
+    width: 38%;
   }
   &__icons {
     width: 80%;
@@ -128,6 +140,9 @@ footer {
 .contact {
   @include tablet {
     @include flex(row, space-between);
+  }
+  @include desktop {
+    width: 70%;
   }
   &__name {
     padding-bottom: 0;
@@ -150,8 +165,14 @@ footer {
     font-size: 1.5rem;
     padding-top: 0;
   }
+  @include desktop {
+    right: 10vw;
+  }
 }
 .copyright__details {
   padding-top: 0;
   font-size: 0.6875rem;
+  @include tablet {
+    font-size: 0.9rem;
+  }
 }
