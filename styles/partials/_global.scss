@@ -95,19 +95,24 @@ li {
   &__link {
     width: 50%;
     text-align: center;
+    border-bottom: 4px solid $bandsite-black;
     @include tablet {
       font-size: 1rem;
       width: auto;
       padding: 2.25rem 0;
       margin-left: 4.5rem;
     }
+    &:hover {
+      animation: nav-hover 1s;
+      animation-fill-mode: forwards;
+    }
   }
 }
 
-.current__link {
-  border-bottom: 4px solid $alabaster;
-  font-weight: bold;
-}
+// .current__link {
+//   border-bottom: 4px solid $alabaster;
+//   font-weight: bold;
+// }
 footer {
   @include dark-section;
   width: 100%;
@@ -155,6 +160,12 @@ footer {
   &__other,
   &__email {
     padding-top: 0;
+  }
+  &__email {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 }
 .copyright__header {

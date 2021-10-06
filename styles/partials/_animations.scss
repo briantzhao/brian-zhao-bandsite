@@ -1,0 +1,18 @@
+@use "./variables" as *;
+@keyframes nav-hover {
+  from {
+    border-bottom: 4px solid $bandsite-black;
+  }
+  to {
+    border-bottom: 4px solid $white;
+  }
+}
+
+@keyframes photo-hover {
+  from {
+    filter: grayscale(100%);
+  }
+  to {
+    filter: grayscale(0%);
+  }
+}

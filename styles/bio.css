@@ -13,6 +13,38 @@
   src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
   font-weight: 700;
 }
+@-webkit-keyframes nav-hover {
+  from {
+    border-bottom: 4px solid #323232;
+  }
+  to {
+    border-bottom: 4px solid #ffffff;
+  }
+}
+@keyframes nav-hover {
+  from {
+    border-bottom: 4px solid #323232;
+  }
+  to {
+    border-bottom: 4px solid #ffffff;
+  }
+}
+@-webkit-keyframes photo-hover {
+  from {
+    filter: grayscale(100%);
+  }
+  to {
+    filter: grayscale(0%);
+  }
+}
+@keyframes photo-hover {
+  from {
+    filter: grayscale(100%);
+  }
+  to {
+    filter: grayscale(0%);
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -157,6 +189,7 @@ li {
 .nav__link {
   width: 50%;
   text-align: center;
+  border-bottom: 4px solid #323232;
 }
 @media (min-width: 768px) {
   .nav__link {
@@ -166,10 +199,11 @@ li {
     margin-left: 4.5rem;
   }
 }
-
-.current__link {
-  border-bottom: 4px solid #fafafa;
-  font-weight: bold;
+.nav__link:hover {
+  -webkit-animation: nav-hover 1s;
+          animation: nav-hover 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 footer {
@@ -239,6 +273,10 @@ footer {
 }
 .contact__assoc, .contact__other, .contact__email {
   padding-top: 0;
+}
+.contact__email a {
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (min-width: 768px) {
@@ -421,6 +459,7 @@ footer {
      object-fit: fill;
   width: 100%;
   padding: 0.5rem 0;
+  filter: grayscale(100%);
 }
 @media (min-width: 768px) {
   .gallery__photo {
@@ -432,4 +471,10 @@ footer {
   .gallery__photo {
     width: 32%;
   }
+}
+.gallery__photo:hover {
+  -webkit-animation: photo-hover 1s;
+          animation: photo-hover 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }/*# sourceMappingURL=bio.css.map */

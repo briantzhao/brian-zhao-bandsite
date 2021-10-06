@@ -123,12 +123,17 @@
     object-fit: fill;
     width: 100%;
     padding: 0.5rem 0;
+    filter: grayscale(100%);
     @include tablet {
       width: 31%;
       padding: 0;
     }
     @include desktop {
       width: 32%;
+    }
+    &:hover {
+      animation: photo-hover 1s;
+      animation-fill-mode: forwards;
     }
   }
 }
