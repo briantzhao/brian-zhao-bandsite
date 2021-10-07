@@ -162,7 +162,7 @@ li {
     padding: 0 10vw;
   }
 }
-.nav__logo, .footer__logo {
+.nav__logo, footer__logo {
   max-height: 1.25rem;
   max-width: 7.5rem;
   margin-top: 1.5rem;
@@ -221,6 +221,25 @@ footer {
     padding: 0 10vw;
   }
 }
+@media (min-width: 768px) {
+  footer p {
+    line-height: 1.25rem;
+  }
+}
+@media (min-width: 768px) {
+  footer__logo {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.25rem;
+    font-size: 1.5rem;
+    padding-top: 0;
+  }
+}
+@media (min-width: 1280px) {
+  footer__logo {
+    right: 10vw;
+  }
+}
 
 .social {
   width: 50%;
@@ -275,21 +294,6 @@ footer {
 .contact__email a {
   text-decoration: none;
   color: inherit;
-}
-
-@media (min-width: 768px) {
-  .footer__logo {
-    position: absolute;
-    top: 1.5rem;
-    right: 2.25rem;
-    font-size: 1.5rem;
-    padding-top: 0;
-  }
-}
-@media (min-width: 1280px) {
-  .footer__logo {
-    right: 10vw;
-  }
 }
 
 .copyright__details {
