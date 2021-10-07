@@ -51,27 +51,6 @@
 }
 
 h1 {
-  font-family: "Avenir Next Regular";
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: lighter;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-}
-@media (min-width: 768px) {
-  h1 {
-    padding-top: 3rem;
-    padding-bottom: 2.25rem;
-  }
-}
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3.75rem;
-    line-height: 4.25rem;
-  }
-}
-
-h2 {
   font-family: "Avenir Next Demi";
   font-size: 1.5rem;
   line-height: 2rem;
@@ -79,18 +58,18 @@ h2 {
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  h2 {
+  h1 {
     padding-top: 3rem;
     padding-bottom: 2.25rem;
   }
 }
 @media (min-width: 768px) {
-  h2 {
+  h1 {
     font-size: 2.25rem;
   }
 }
 
-h3 {
+h2 {
   font-family: "Avenir Next Demi";
   font-size: 0.875rem;
   line-height: 1.125rem;
@@ -98,13 +77,13 @@ h3 {
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  h3 {
+  h2 {
     padding-top: 3rem;
     padding-bottom: 2.25rem;
   }
 }
 @media (min-width: 768px) {
-  h3 {
+  h2 {
     font-size: 1.5rem;
     line-height: 2rem;
   }
@@ -163,12 +142,13 @@ li {
     padding: 0 10vw;
   }
 }
-.nav__logo {
+.nav__logo, .footer__logo {
   max-height: 1.25rem;
   max-width: 7.5rem;
+  margin-top: 1.5rem;
 }
 @media (min-width: 768px) {
-  .nav__logo {
+  .nav__logo, .footer__logo {
     font-size: 2rem;
     padding: 0;
     max-height: 3rem;
@@ -199,7 +179,13 @@ li {
     margin-left: 4.5rem;
   }
 }
-.nav__link:hover {
+
+.current__link {
+  border-bottom: 4px solid #fafafa;
+  font-weight: bold;
+}
+
+.other__link:hover {
   -webkit-animation: nav-hover 1s;
           animation: nav-hover 1s;
   -webkit-animation-fill-mode: forwards;
@@ -280,7 +266,7 @@ footer {
 }
 
 @media (min-width: 768px) {
-  .copyright__header {
+  .footer__logo {
     position: absolute;
     top: 1.5rem;
     right: 2.25rem;
@@ -289,13 +275,13 @@ footer {
   }
 }
 @media (min-width: 1280px) {
-  .copyright__header {
+  .footer__logo {
     right: 10vw;
   }
 }
 
 .copyright__details {
-  padding-top: 0;
+  padding-top: 0.5rem;
   font-size: 0.6875rem;
 }
 @media (min-width: 768px) {
