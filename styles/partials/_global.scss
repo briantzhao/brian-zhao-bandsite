@@ -134,19 +134,18 @@ li {
       padding: 2.25rem 0;
       margin-left: 4.5rem;
     }
+    //styling for current link being displayed (biography)
+    &--selected {
+      border-bottom: 4px solid $alabaster;
+      font-weight: bold;
+    }
+
+    //styling for other link animaton (shows)
+    &--unselected:hover {
+      animation: nav-hover 1s;
+      animation-fill-mode: forwards;
+    }
   }
-}
-
-//styling for current link being displayed (biography)
-.current__link {
-  border-bottom: 4px solid $alabaster;
-  font-weight: bold;
-}
-
-//styling for other link animaton (shows)
-.other__link:hover {
-  animation: nav-hover 1s;
-  animation-fill-mode: forwards;
 }
 
 //styling for footer section (expecting this to show up on multiple pages in future sprints)
@@ -172,7 +171,7 @@ footer {
     }
   }
   //styling for footer BANDSITE logo
-  &__logo {
+  .footer__logo {
     @extend .nav__logo;
 
     //reposition logo for tablet width and greater
@@ -220,20 +219,29 @@ footer {
 
 //styling for footer contact section
 .contact {
+  padding-bottom: 3rem;
+
   //update to row for tablet width and greater
   @include tablet {
     @include flex(row, space-between);
+    padding: 0;
   }
 
   //update space taken for desktop
   @include desktop {
     width: 70%;
   }
-
+  &__card {
+    padding: 0;
+  }
   //override font family provided by style guide and remove space between name and association elements
   &__name {
     padding-bottom: 0;
     font-family: "Avenir Next Demi";
+
+    @include tablet {
+      padding-top: 0;
+    }
   }
 
   //override font family provided by style guide for association element
