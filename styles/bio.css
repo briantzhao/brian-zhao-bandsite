@@ -167,14 +167,6 @@ li {
   max-width: 7.5rem;
   margin-top: 1.5rem;
 }
-@media (min-width: 768px) {
-  .nav__logo, .footer__logo {
-    font-size: 2rem;
-    padding: 0;
-    max-height: 3rem;
-    max-width: 10rem;
-  }
-}
 .nav__links {
   width: 100%;
   display: flex;
@@ -344,6 +336,11 @@ footer {
 }
 .hero__title {
   margin-left: 1rem;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    margin-left: 2.25rem;
+  }
 }
 @media (min-width: 1280px) {
   .hero__title {

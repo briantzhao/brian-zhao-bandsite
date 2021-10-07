@@ -1,4 +1,6 @@
 @use "./variables" as *;
+
+//animation for hovering over the navigation link w/o a bottom border
 @keyframes nav-hover {
   from {
     border-bottom: 4px solid $bandsite-black;
@@ -8,6 +10,7 @@
   }
 }
 
+//animation for hovering over photos
 @keyframes photo-hover {
   from {
     filter: grayscale(100%);

@@ -4,22 +4,29 @@
 @use "./partials/typography" as *;
 @use "./partials/animations" as *;
 
+// hero section styling
 .hero {
   background: url(../../assets/images/hero-bio.jpg);
   position: relative;
   height: 60vw;
   background-size: cover;
   background-position: center;
+
+  //update hero image positioning and size for tablet
   @include tablet {
     background-size: 110vw;
     background-position-x: left;
     background-position-y: bottom;
+
+    //update hero image positioning and size for desktop
     @include desktop {
       background-size: cover;
       background-position: 0 -3rem;
       height: 50vw;
     }
   }
+
+  //overlay to darken hero image
   &__overlay {
     position: absolute;
     background-color: rgba(50, 50, 50, 0.5);
@@ -31,54 +38,88 @@
     display: flex;
     align-items: center;
   }
+
+  //title styling
   &__title {
     margin-left: 1rem;
+
+    //update positioning for tablet
+    @include tablet {
+      margin-left: 2.25rem;
+    }
+
+    //update positioning for desktop
     @include desktop {
       margin-left: 10vw;
     }
   }
 }
+
+//styling for about section
 .about {
   @include light-section;
   margin: 0 1rem;
+
+  //update margin for tablet
   @include tablet {
     margin: 0 2.25rem;
   }
+
+  //update margin for desktop
   @include desktop {
     margin: 0 10vw;
   }
   &__subsection {
+    //updates additional margin for tablet
     @include tablet {
       margin: 0 3.75rem;
     }
+
+    //updates additional margin for desktop
     @include desktop {
       margin: 0 5.5rem;
     }
   }
+
+  //styling for about main image
   &__image {
     object-fit: fill;
     width: 100%;
   }
+
+  //styling for quote bottom padding
   &__quote {
     padding-bottom: 0.5rem;
+
+    //formats paragraph width to fit tablet mockup
     @include tablet {
       padding-bottom: 1rem;
       width: 106.4%;
     }
+
+    //formats paragraph width to fit desktop mockup
     @include desktop {
       width: 85%;
     }
   }
+
+  //formatting for "Bryan Teddy" line
   &__speaker {
     padding: 0;
   }
+
+  //formatting for article portion of about section, including header
   &__article {
     padding-right: 0.25rem;
+
+    //changes paragraph formatting to row for tablet and wider
     &__paragraphs {
       @include tablet {
         @include flex(row, space-between);
       }
     }
+
+    //padding formatting for paragraphs, update column width for tablet and wider
     &__paragraph {
       padding-top: 0;
       @include tablet {
@@ -87,19 +128,27 @@
     }
   }
 }
+
+//styling for photo gallery seciton
 .gallery {
   padding: 0 1rem;
   background-color: $alabaster;
   color: $bandsite-black;
   padding-bottom: 1rem;
+
+  // update padding for tablet
   @include tablet {
     padding: 0 2.25rem;
     padding-bottom: 2.25rem;
   }
+
+  //update padding for desktop
   @include desktop {
     padding-left: 10vw;
     padding-right: 10vw;
   }
+
+  //updates layout of photos in tablet width and greater
   &__photos {
     @include tablet {
       @include flex(column, center);
@@ -107,6 +156,8 @@
       flex-wrap: wrap;
     }
   }
+
+  //configures photo gallery rows for tablet width and greater
   &__row {
     @include tablet {
       @include flex(row, center);
@@ -114,18 +165,28 @@
       width: 100%;
     }
   }
+
+  //styling for individual photos
   &__photo {
     object-fit: fill;
     width: 100%;
     padding: 0.5rem 0;
+
+    //filter for deep dive
     filter: grayscale(100%);
+
+    //changes individual photo width for tablet
     @include tablet {
       width: 31%;
       padding: 0;
     }
+
+    //changes individual photo width for desktop
     @include desktop {
       width: 32%;
     }
+
+    //animation for hover
     &:hover {
       animation: photo-hover 1s;
       animation-fill-mode: forwards;
