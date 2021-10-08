@@ -3,10 +3,10 @@
 //animation for hovering over the navigation link w/o a bottom border
 @keyframes nav-hover {
   from {
-    border-bottom: 4px solid $bandsite-black;
+    border-bottom: 2px solid $bandsite-black;
   }
   to {
-    border-bottom: 4px solid $white;
+    border-bottom: 2px solid $white;
   }
 }
 

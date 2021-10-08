@@ -159,7 +159,15 @@ a {
   &__link {
     width: 100%;
     text-align: center;
-    border-bottom: 4px solid $bandsite-black;
+    border-bottom: 2px solid $bandsite-black;
+
+    //link hover animation
+    &:hover {
+      color: $white;
+      animation: nav-hover 1s;
+      animation-fill-mode: forwards;
+      font-weight: bold;
+    }
 
     //update font size and border width for tablet width and greater
     @include tablet {
@@ -169,21 +177,13 @@ a {
     }
     //styling for current link being displayed (biography)
     &--selected {
-      border-bottom: 4px solid $alabaster;
+      border-bottom: 2px solid $alabaster;
       font-weight: bold;
     }
 
     //styling for inactive link (shows)
     &--unselected {
       color: $mercury;
-
-      //inactive link hover animation
-      &:hover {
-        color: $white;
-        animation: nav-hover 1s;
-        animation-fill-mode: forwards;
-        font-weight: bold;
-      }
     }
   }
 }
