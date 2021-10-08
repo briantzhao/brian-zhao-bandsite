@@ -122,7 +122,7 @@ a {
     max-width: 7.5rem;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
-    margin-right: 1rem;
+    //margin-right: 1rem;
   }
 
   //nav links styling to center links
@@ -135,13 +135,13 @@ a {
     @include tablet {
       justify-content: center;
       gap: 3.5rem;
-      margin-left: 2.5rem;
+      margin-left: 3.5rem;
     }
 
     //change width and margin for desktop
     @include desktop {
       width: 20%;
-      margin-left: 1rem;
+      margin-left: 2rem;
     }
   }
 
