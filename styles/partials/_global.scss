@@ -140,10 +140,16 @@ li {
       font-weight: bold;
     }
 
-    //styling for other link animaton (shows)
-    &--unselected:hover {
-      animation: nav-hover 1s;
-      animation-fill-mode: forwards;
+    //styling for inactive link (shows)
+    &--unselected {
+      color: $mercury;
+
+      //inactive link hover animation
+      &:hover {
+        color: $white;
+        animation: nav-hover 1s;
+        animation-fill-mode: forwards;
+      }
     }
   }
 }

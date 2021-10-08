@@ -195,7 +195,11 @@ li {
   border-bottom: 4px solid #fafafa;
   font-weight: bold;
 }
+.nav__link--unselected {
+  color: #e1e1e1;
+}
 .nav__link--unselected:hover {
+  color: #ffffff;
   -webkit-animation: nav-hover 1s;
           animation: nav-hover 1s;
   -webkit-animation-fill-mode: forwards;
