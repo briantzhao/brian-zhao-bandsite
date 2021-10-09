@@ -237,17 +237,13 @@ footer {
 }
 
 //styling for footer social links section
-.social {
+.footer__social {
   width: 50%;
 
   //reconfigure to row for tablet width and greater
   @include tablet {
     @include flex(row, space-between);
     align-items: center;
-  }
-
-  //adjust width for tablet
-  @include tablet {
     width: 52%;
   }
 
@@ -256,48 +252,53 @@ footer {
     width: 38%;
   }
 
-  &__header {
+  &-header {
     width: 100%;
   }
 
   //styling for icons section
-  &__icons {
+  &-icons {
     width: 80%;
     @include flex(row, space-between);
 
     //update width for tablet width and greater
     @include tablet {
       width: 50%;
+      margin-top: 0.5rem;
     }
   }
 
   //update social icon size at tablet width and greater
-  &__icon__img {
+  &-img {
     @include tablet {
+      width: 120%;
+    }
+    @include desktop {
       width: 150%;
     }
   }
 }
 
 //styling for footer contact section
-.contact {
+.footer__contact {
   padding-bottom: 2rem;
 
   //update to row for tablet width and greater
   @include tablet {
     @include flex(row, space-between);
     padding: 0;
+    width: 98%;
   }
 
   //update space taken for desktop
   @include desktop {
     width: 70%;
   }
-  &__card {
+  &-card {
     padding: 0;
   }
   //override font family provided by style guide and remove space between name and association elements
-  &__name {
+  &-name {
     padding-bottom: 0;
     font-family: "Avenir Next Demi";
 
@@ -307,19 +308,19 @@ footer {
   }
 
   //override font family provided by style guide for association element
-  &__assoc {
+  &-assoc {
     font-family: "Avenir Next Demi";
   }
 
   //remove spacing from contact info elements
-  &__assoc,
-  &__other,
-  &__email {
+  &-assoc,
+  &-other,
+  &_-email {
     padding-top: 0;
   }
-  &__email {
+  &-email {
     //style mailto links from deep dive
-    a {
+    &__mailto {
       text-decoration: none;
       color: inherit;
     }
@@ -327,7 +328,7 @@ footer {
 }
 
 //styling for copyright details
-.copyright__details {
+.footer__copyright-details {
   padding-top: 0.5rem;
   font-size: 0.6875rem;
 

@@ -287,92 +287,95 @@ footer {
   }
 }
 
-.social {
+.footer__social {
   width: 50%;
 }
 @media (min-width: 768px) {
-  .social {
+  .footer__social {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-}
-@media (min-width: 768px) {
-  .social {
     width: 52%;
   }
 }
 @media (min-width: 1280px) {
-  .social {
+  .footer__social {
     width: 38%;
   }
 }
-.social__header {
+.footer__social-header {
   width: 100%;
 }
-.social__icons {
+.footer__social-icons {
   width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 @media (min-width: 768px) {
-  .social__icons {
+  .footer__social-icons {
     width: 50%;
+    margin-top: 0.5rem;
   }
 }
 @media (min-width: 768px) {
-  .social__icon__img {
+  .footer__social-img {
+    width: 120%;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__social-img {
     width: 150%;
   }
 }
 
-.contact {
+.footer__contact {
   padding-bottom: 2rem;
 }
 @media (min-width: 768px) {
-  .contact {
+  .footer__contact {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
+    width: 98%;
   }
 }
 @media (min-width: 1280px) {
-  .contact {
+  .footer__contact {
     width: 70%;
   }
 }
-.contact__card {
+.footer__contact-card {
   padding: 0;
 }
-.contact__name {
+.footer__contact-name {
   padding-bottom: 0;
   font-family: "Avenir Next Demi";
 }
 @media (min-width: 768px) {
-  .contact__name {
+  .footer__contact-name {
     padding-top: 0;
   }
 }
-.contact__assoc {
+.footer__contact-assoc {
   font-family: "Avenir Next Demi";
 }
-.contact__assoc, .contact__other, .contact__email {
+.footer__contact-assoc, .footer__contact-other, .footer__contact_-email {
   padding-top: 0;
 }
-.contact__email a {
+.footer__contact-email__mailto {
   text-decoration: none;
   color: inherit;
 }
 
-.copyright__details {
+.footer__copyright-details {
   padding-top: 0.5rem;
   font-size: 0.6875rem;
 }
 @media (min-width: 768px) {
-  .copyright__details {
+  .footer__copyright-details {
     font-size: 0.9rem;
   }
 }
