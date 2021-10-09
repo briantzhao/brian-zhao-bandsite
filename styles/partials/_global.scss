@@ -159,7 +159,7 @@ a {
   &__link {
     width: 100%;
     text-align: center;
-    border-bottom: 2px solid $bandsite-black;
+    border-bottom: 4px solid $bandsite-black;
 
     //link hover animation
     &:hover {
@@ -177,7 +177,7 @@ a {
     }
     //styling for current link being displayed (biography)
     &--selected {
-      border-bottom: 2px solid $alabaster;
+      border-bottom: 4px solid $alabaster;
       font-weight: bold;
     }
 

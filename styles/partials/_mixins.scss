@@ -1,20 +1,25 @@
 @use "./variables" as *;
+
+//general mixin for flexbox
 @mixin flex($direction, $justify) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
 }
 
+//styling for dark sections
 @mixin dark-section {
   background-color: $bandsite-black;
   color: $white;
 }
 
+//styling for light sections
 @mixin light-section {
   background-color: $white;
   color: $bandsite-black;
 }
 
+//styling for darker sections
 @mixin header-padding {
   padding-top: 1.5rem;
   padding-bottom: 1rem;
@@ -24,12 +29,14 @@
   }
 }
 
+//media query for tablet view
 @mixin tablet {
   @media (min-width: 768px) {
     @content;
   }
 }
 
+//media query for desktop view
 @mixin desktop {
   @media (min-width: 1280px) {
     @content;

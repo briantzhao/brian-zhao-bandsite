@@ -72,6 +72,8 @@
     width: 63.75rem;
     margin: 0 auto;
   }
+
+  //additional margin for beginning of about section
   &__subsection {
     //updates additional margin for tablet
     @include tablet {

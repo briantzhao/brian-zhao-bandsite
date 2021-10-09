@@ -15,18 +15,18 @@
 }
 @-webkit-keyframes nav-hover {
   from {
-    border-bottom: 2px solid #323232;
+    border-bottom: 4px solid #323232;
   }
   to {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
   }
 }
 @keyframes nav-hover {
   from {
-    border-bottom: 2px solid #323232;
+    border-bottom: 4px solid #323232;
   }
   to {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
   }
 }
 @-webkit-keyframes photo-hover {
@@ -217,7 +217,7 @@ a {
 .nav__link {
   width: 100%;
   text-align: center;
-  border-bottom: 2px solid #323232;
+  border-bottom: 4px solid #323232;
 }
 .nav__link:hover {
   color: #ffffff;
@@ -235,7 +235,7 @@ a {
   }
 }
 .nav__link--selected {
-  border-bottom: 2px solid #fafafa;
+  border-bottom: 4px solid #fafafa;
   font-weight: bold;
 }
 .nav__link--unselected {
