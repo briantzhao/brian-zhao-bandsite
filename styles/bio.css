@@ -398,7 +398,7 @@ footer {
 @media (min-width: 768px) and (min-width: 1280px) {
   .hero {
     background-size: cover;
-    background-position: center -5rem;
+    background-position: center -4rem;
     height: 46vw;
   }
 }
