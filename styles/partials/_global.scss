@@ -84,6 +84,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 //styling for italic spans in about quote
 .italic {
   font-style: italic;
@@ -119,6 +120,7 @@ a {
       margin: 0 auto;
     }
   }
+
   //BANDSITE logo size and margin styling
   &__logo {
     max-height: 1.25rem;
@@ -158,6 +160,7 @@ a {
       width: auto;
     }
   }
+
   //nav link styling to increase width in mobile view for border considerations
   &__link {
     width: 100%;
@@ -178,6 +181,7 @@ a {
       width: auto;
       padding: 1.75rem 0;
     }
+
     //styling for current link being displayed (biography)
     &--selected {
       border-bottom: 4px solid $alabaster;
@@ -229,10 +233,12 @@ footer {
     padding-top: 2.25rem;
   }
 }
+
 //styling for footer BANDSITE logo
 .footer__logo {
   @extend .nav__logo;
   margin-bottom: 0.5rem;
+
   //reposition logo for tablet width and greater
   @include tablet {
     position: absolute;
