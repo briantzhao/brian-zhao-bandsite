@@ -149,6 +149,9 @@ a {
 .nav {
   background-color: #323232;
   color: #ffffff;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .nav {
@@ -240,6 +243,14 @@ a {
 }
 .nav__link--unselected {
   color: #e1e1e1;
+}
+.nav__hidden {
+  height: 7.3125rem;
+}
+@media (min-width: 768px) {
+  .nav__hidden {
+    height: 4.875rem;
+  }
 }
 
 footer {

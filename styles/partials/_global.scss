@@ -93,7 +93,9 @@ a {
 //styling for nav section (expecting this to show up on multiple pages in future sprints)
 .nav {
   @include dark-section;
-
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
   //change orientation to flex row for tablet width and greater
   @include tablet {
     @include flex(row, flex-start);
@@ -184,6 +186,12 @@ a {
     //styling for inactive link (shows)
     &--unselected {
       color: $mercury;
+    }
+  }
+  &__hidden {
+    height: 7.3125rem;
+    @include tablet {
+      height: 4.875rem;
     }
   }
 }
