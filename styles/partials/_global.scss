@@ -96,6 +96,7 @@ a {
   position: fixed;
   z-index: 1000;
   width: 100%;
+
   //change orientation to flex row for tablet width and greater
   @include tablet {
     @include flex(row, flex-start);
@@ -188,6 +189,8 @@ a {
       color: $mercury;
     }
   }
+
+  //hidden div that pushes hero image below fixed navbar
   &__hidden {
     height: 7.3125rem;
     @include tablet {
