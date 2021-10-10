@@ -315,8 +315,11 @@ footer {
   //remove spacing from contact info elements
   &-assoc,
   &-other,
-  &_-email {
+  &-email {
     padding-top: 0;
+    @include tablet {
+      padding-bottom: 2rem;
+    }
   }
   &-email {
     //style mailto links from deep dive

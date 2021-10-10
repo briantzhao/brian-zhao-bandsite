@@ -106,12 +106,14 @@
     //formats paragraph width to fit tablet mockup
     @include tablet {
       padding-bottom: 1rem;
-      width: 106.4%;
+      width: 100%;
+      font-size: 1.4rem;
     }
 
     //formats paragraph width to fit desktop mockup
     @include desktop {
       width: 86%;
+      font-size: 1.5rem;
     }
   }
 
@@ -164,22 +166,22 @@
     //update margin for tablet
     @include tablet {
       margin: 0 2.25rem;
-      margin-bottom: 2.25rem;
     }
 
     //update margin for desktop
     @include desktop {
       width: 63.75rem;
       margin: 0 auto;
-      margin-bottom: 2.25rem;
     }
   }
+
   //updates layout of photos in tablet width and greater
   &__photos {
     @include tablet {
       @include flex(column, center);
       gap: 1.5rem;
       flex-wrap: wrap;
+      margin-bottom: 2.25rem;
     }
   }
 

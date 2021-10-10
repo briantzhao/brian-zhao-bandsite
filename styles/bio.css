@@ -362,8 +362,13 @@ footer {
 .footer__contact-assoc {
   font-family: "Avenir Next Demi";
 }
-.footer__contact-assoc, .footer__contact-other, .footer__contact_-email {
+.footer__contact-assoc, .footer__contact-other, .footer__contact-email {
   padding-top: 0;
+}
+@media (min-width: 768px) {
+  .footer__contact-assoc, .footer__contact-other, .footer__contact-email {
+    padding-bottom: 2rem;
+  }
 }
 .footer__contact-email__mailto {
   text-decoration: none;
@@ -474,12 +479,14 @@ footer {
 @media (min-width: 768px) {
   .about__quote {
     padding-bottom: 1rem;
-    width: 106.4%;
+    width: 100%;
+    font-size: 1.4rem;
   }
 }
 @media (min-width: 1280px) {
   .about__quote {
     width: 86%;
+    font-size: 1.5rem;
   }
 }
 .about__speaker {
@@ -530,14 +537,12 @@ footer {
 @media (min-width: 768px) {
   .gallery > * {
     margin: 0 2.25rem;
-    margin-bottom: 2.25rem;
   }
 }
 @media (min-width: 1280px) {
   .gallery > * {
     width: 63.75rem;
     margin: 0 auto;
-    margin-bottom: 2.25rem;
   }
 }
 @media (min-width: 768px) {
@@ -547,6 +552,7 @@ footer {
     justify-content: center;
     gap: 1.5rem;
     flex-wrap: wrap;
+    margin-bottom: 2.25rem;
   }
 }
 @media (min-width: 768px) {
