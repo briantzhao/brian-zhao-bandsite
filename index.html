@@ -4,10 +4,225 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/bio.css" />
+    <title>Biography</title>
+    <link rel="stylesheet" href="styles/bio.css" />
   </head>
   <body>
-    <h1>Avenir</h1>
+    <header>
+      <!-- nav section -->
+      <nav class="nav">
+        <div class="nav--responsive">
+          <a href="./index.html">
+            <img src="assets/logos/Logo-bandsite.svg" class="nav__logo"
+          /></a>
+          <ul class="nav__links">
+            <a href="#" class="nav__url"
+              ><li class="nav__link nav__link--selected">Biography</li></a
+            >
+            <a href="#" class="nav__url"
+              ><li class="nav__link nav__link--unselected">Shows</li></a
+            >
+          </ul>
+        </div>
+      </nav>
+      <div class="nav__hidden"></div>
+      <!-- hero section -->
+      <section class="hero">
+        <div class="hero__overlay">
+          <h1 class="hero__title">The Bees Knees</h1>
+        </div>
+      </section>
+    </header>
+    <main>
+      <!-- about the band section -->
+      <section class="about">
+        <h2 class="about__title">About the Musicians</h2>
+        <div class="about__subsection">
+          <img
+            class="about__image"
+            src="./assets/images/band.jpg"
+            alt="The Bees Knees show"
+          />
+          <h3 class="about__quote">
+            <span class="italic">"</span>We push each other to be the best. It's
+            not uncommon for one of us to say <span class="italic">'</span>this
+            needs to be better, back to the drawing board<span class="italic"
+              >'"</span
+            >
+          </h3>
+          <h3 class="about__speaker">
+            - Bryan Teddy, lead vocalist of The Bees Knees
+          </h3>
+          <h3 class="about__article__header">The Bees Knees</h3>
+          <article class="about__article">
+            <p class="about__article__paragraph">
+              The Bees Knees is a pop rock band originating from San Francisco,
+              California. The band consists of lead vocalist Bryan Teddy,
+              guitarist Mack Tolkens, guitarist Andrew Green, bassist Kent
+              Zulkee and drummer Freddie Fischer. The band achieved its first
+              commercial success as an unsigned act, drawing attention from
+              manager Cam Adams. Having worked with other popular acts (The
+              Elephant In The Room, One Trick Pony, The Cat’s Meow), Adams was
+              confident the band could succeed even further, pushing them to
+              sign with Magenta Records.
+            </p>
+            <p class="about__article__paragraph2">
+              From there, the band has soared, gaining international recognition
+              and ranking in the top 10 on the Poster Charts. New fans
+              immediately fell in love with the band’s original and organic
+              attitude, solidifying their place as one of the hottest and
+              fastest up and coming acts of this century. Fans affectionately
+              refer to themselves as “The Hive” and are drawn to their candid
+              and authentic performances on stage. Looking forward to touring in
+              the future, The Bees Knees are currently recording their second
+              studio album, looking to be released in late 2021.
+            </p>
+          </article>
+        </div>
+      </section>
+      <!-- photo gallery section -->
+      <section class="gallery">
+        <h2 class="gallery__title">Photo Gallery</h2>
+        <article class="gallery__photos">
+          <div class="gallery__row">
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-1.jpg"
+              alt=""
+            />
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-2.jpg"
+              alt=""
+            />
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-3.jpg"
+              alt=""
+            />
+          </div>
+          <div class="gallery__row">
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-4.jpg"
+              alt=""
+            />
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-5.jpg"
+              alt=""
+            />
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-6.jpg"
+              alt=""
+            />
+          </div>
+          <div class="gallery__row">
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-7.jpg"
+              alt=""
+            />
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-8.jpg"
+              alt=""
+            />
+            <img
+              class="gallery__photo"
+              src="./assets/images/Photo-gallery-9.jpg"
+              alt=""
+            />
+          </div>
+        </article>
+      </section>
+    </main>
+    <!-- footer section -->
+    <footer>
+      <div class="footer--responsive">
+        <!-- social links -->
+        <section class="footer__social">
+          <h2 class="footer__social-header">Get in Touch</h2>
+          <div class="footer__social-icons">
+            <a href="https://instagram.com" target="_blank" class="social__icon"
+              ><img
+                src="./assets/icons/SVG/Icon-instagram.svg"
+                alt="Instagram Icon"
+                class="footer__social-img"
+            /></a>
+            <a href="https://facebook.com" target="_blank" class="social__icon"
+              ><img
+                src="./assets/icons/SVG/Icon-facebook.svg"
+                alt="Facebook Icon"
+                class="footer__social-img"
+            /></a>
+            <a href="https://twitter.com" target="_blank" class="social__icon"
+              ><img
+                src="./assets/icons/SVG/Icon-twitter.svg"
+                alt="Twitter Icon"
+                class="footer__social-img"
+            /></a>
+          </div>
+        </section>
+        <!-- contact information section -->
+        <ul class="footer__contact">
+          <li class="footer__contact-card">
+            <p class="footer__contact-name">Cam Adams</p>
+            <p class="footer__contact-assoc">The Bees Knees Management</p>
+            <p class="footer__contact-other">
+              503 Broadway Penthouse,<br />
+              New York, NY 10012, USA
+            </p>
+            <p class="footer__contact-email">
+              <a
+                class="footer__contact-email__mailto"
+                href="mailto:info@thebeesknees.com"
+                >info@thebeesknees.com</a
+              >
+            </p>
+          </li>
+          <li class="footer__contact-card">
+            <p class="footer__contact-name">Pearl Gregg</p>
+            <p class="footer__contact-assoc">Limitless Artist Group</p>
+            <p class="footer__contact-other">
+              Booking Agent for <br />
+              US / South America / Japan
+            </p>
+            <p class="footer__contact-email">
+              <a
+                class="footer__contact-email__mailto"
+                href="mailto:pearl.gregg@limitlessag.com"
+                >pearl.gregg@limitlessag.com</a
+              >
+            </p>
+          </li>
+          <li class="footer__contact-card">
+            <p class="footer__contact-name">Carson Whyte</p>
+            <p class="footer__contact-assoc">ARCH Entertainment</p>
+            <p class="footer__contact-other">
+              Booking Agent for<br />
+              UK / EU / AU
+            </p>
+            <p class="footer__contact-email">
+              <a
+                class="footer__contact-email__mailto"
+                href="mailto: cwhyte@archentertainment.com"
+                >cwhyte@archentertainment.com</a
+              >
+            </p>
+          </li>
+        </ul>
+        <!-- band logo and copyright section -->
+        <section class="footer__copyright">
+          <a href="./index.html"
+            ><img src="assets/logos/Logo-bandsite.svg" class="footer__logo"
+          /></a>
+          <p class="footer__copyright-details">
+            Copyright The Bees Knees &copy 2021 All Rights Reserved
+          </p>
+        </section>
+      </div>
+    </footer>
   </body>
 </html>

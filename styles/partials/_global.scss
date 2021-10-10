@@ -1,0 +1,359 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+@use "./animations" as *;
+
+//styles for general html
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+//styling for page header text
+h1 {
+  font-family: "Avenir Next Demi";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  @include header-padding;
+
+  //update font properties for tablet width and greater
+  @include tablet {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+
+//styling for section header text
+h2 {
+  font-family: "Avenir Next Demi";
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  //update font properties for tablet width and greater
+  @include header-padding;
+  @include tablet {
+    font-size: 2.25rem;
+  }
+}
+
+//styling for subheader text
+h3 {
+  font-family: "Avenir Next Demi";
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  @include header-padding;
+
+  //update font properties for tablet width and greater
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+//styling for body text
+p {
+  font-family: "Avenir Next Regular";
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  padding: 1rem 0;
+
+  //update font properties for tablet width and greater
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 2.25rem 0;
+  }
+}
+
+//general styling for unordered lists
+ul {
+  list-style-type: none;
+  padding-top: 1rem;
+  padding-left: 0;
+}
+
+//general styling for list items
+li {
+  padding: 1rem 0;
+  font-family: "Avenir Next Regular";
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+//styling for italic spans in about quote
+.italic {
+  font-style: italic;
+  letter-spacing: 0.2rem;
+}
+
+//styling for nav section (expecting this to show up on multiple pages in future sprints)
+.nav {
+  @include dark-section;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+
+  //change orientation to flex row for tablet width and greater
+  @include tablet {
+    @include flex(row, flex-start);
+  }
+
+  //div added for desktop auto margins primarily (other styling could go into nav)
+  &--responsive {
+    @include flex(column, center);
+    align-items: center;
+
+    //switch flex direction for tablet and add margins
+    @include tablet {
+      @include flex(row, flex-start);
+      margin-left: 2.25rem;
+    }
+
+    //update margin for desktop
+    @include desktop {
+      width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
+
+  //BANDSITE logo size and margin styling
+  &__logo {
+    max-height: 1.25rem;
+    max-width: 7.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    //margin-right: 1rem;
+  }
+
+  //nav links styling to center links
+  &__links {
+    padding-top: 0;
+    width: 100%;
+    @include flex(row, space-around);
+
+    //change justification for tablet width and greater
+    @include tablet {
+      justify-content: center;
+      gap: 3.5rem;
+      margin-left: 3.5rem;
+    }
+
+    //change width and margin for desktop
+    @include desktop {
+      width: 20%;
+      margin-left: 2rem;
+    }
+  }
+
+  //have link fill half of ul width
+  &__url {
+    width: 50%;
+    @include flex(row, center);
+
+    //adjust width for desktop
+    @include desktop {
+      width: auto;
+    }
+  }
+
+  //nav link styling to increase width in mobile view for border considerations
+  &__link {
+    width: 100%;
+    text-align: center;
+    border-bottom: 4px solid $bandsite-black;
+
+    //link hover animation
+    &:hover {
+      color: $white;
+      animation: nav-hover 1s;
+      animation-fill-mode: forwards;
+      font-weight: bold;
+    }
+
+    //update font size and border width for tablet width and greater
+    @include tablet {
+      font-size: 1rem;
+      width: auto;
+      padding: 1.75rem 0;
+    }
+
+    //styling for current link being displayed (biography)
+    &--selected {
+      border-bottom: 4px solid $alabaster;
+      font-weight: bold;
+    }
+
+    //styling for inactive link (shows)
+    &--unselected {
+      color: $mercury;
+    }
+  }
+
+  //hidden div that pushes hero image below fixed navbar
+  &__hidden {
+    height: 7.3125rem;
+    @include tablet {
+      height: 4.875rem;
+    }
+  }
+}
+
+//styling for footer section (expecting this to show up on multiple pages in future sprints)
+footer {
+  @include dark-section;
+  width: 100%;
+
+  //adjust line height for tablet width and greater
+  p {
+    @include tablet {
+      line-height: 1.25rem;
+    }
+  }
+}
+
+//div added for margin purposes
+.footer--responsive {
+  position: relative;
+  margin: 0 1rem;
+
+  //update margin for tablet
+  @include tablet {
+    margin: 0 2.25rem;
+  }
+
+  //update margin for desktop
+  @include desktop {
+    width: 63.75rem;
+    margin: 0 auto;
+    padding-top: 2.25rem;
+  }
+}
+
+//styling for footer BANDSITE logo
+.footer__logo {
+  @extend .nav__logo;
+  margin-bottom: 0.5rem;
+
+  //reposition logo for tablet width and greater
+  @include tablet {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    padding-top: 0;
+  }
+
+  //update margin for desktop
+  @include desktop {
+    top: 3.75rem;
+  }
+}
+
+//styling for footer social links section
+.footer__social {
+  width: 50%;
+
+  //reconfigure to row for tablet width and greater
+  @include tablet {
+    @include flex(row, space-between);
+    align-items: center;
+    width: 52%;
+  }
+
+  //adjust width for desktop
+  @include desktop {
+    width: 38%;
+  }
+
+  &-header {
+    width: 100%;
+  }
+
+  //styling for icons section
+  &-icons {
+    width: 80%;
+    @include flex(row, space-between);
+
+    //update width for tablet width and greater
+    @include tablet {
+      width: 50%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  //update social icon size at tablet width and greater
+  &-img {
+    @include tablet {
+      width: 120%;
+    }
+    @include desktop {
+      width: 150%;
+    }
+  }
+}
+
+//styling for footer contact section
+.footer__contact {
+  padding-bottom: 2rem;
+
+  //update to row for tablet width and greater
+  @include tablet {
+    @include flex(row, space-between);
+    padding: 0;
+    width: 98%;
+  }
+
+  //update space taken for desktop
+  @include desktop {
+    width: 70%;
+  }
+  &-card {
+    padding: 0;
+  }
+  //override font family provided by style guide and remove space between name and association elements
+  &-name {
+    padding-bottom: 0;
+    font-family: "Avenir Next Demi";
+
+    @include tablet {
+      padding-top: 0;
+    }
+  }
+
+  //override font family provided by style guide for association element
+  &-assoc {
+    font-family: "Avenir Next Demi";
+  }
+
+  //remove spacing from contact info elements
+  &-assoc,
+  &-other,
+  &-email {
+    padding-top: 0;
+    @include tablet {
+      padding-bottom: 2rem;
+    }
+  }
+  &-email {
+    //style mailto links from deep dive
+    &__mailto {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+//styling for copyright details
+.footer__copyright-details {
+  padding-top: 0.5rem;
+  font-size: 0.6875rem;
+
+  //update font size for tablet width and greater
+  @include tablet {
+    font-size: 0.9rem;
+  }
+}

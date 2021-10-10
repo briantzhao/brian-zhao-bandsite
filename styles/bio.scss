@@ -1,7 +1,225 @@
-@font-face {
-  font-family: "Avenir Next Regular";
-  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf");
+@use "./partials/global";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/typography" as *;
+@use "./partials/animations" as *;
+
+// hero section styling
+.hero {
+  background: url(../../assets/images/hero-bio.jpg);
+  position: relative;
+  height: 60vw;
+  background-size: cover;
+  background-position: center;
+
+  //update hero image positioning and size for tablet
+  @include tablet {
+    background-size: 105vw;
+    background-position-x: center;
+    background-position-y: bottom;
+    height: 62.5vw;
+
+    //update hero image positioning and size for desktop
+    @include desktop {
+      background-size: cover;
+      background-position: center -4rem;
+      height: 46vw;
+    }
+  }
+
+  //overlay to darken hero image
+  &__overlay {
+    position: absolute;
+    background-color: rgba(50, 50, 50, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: $white;
+    display: flex;
+    align-items: center;
+  }
+
+  //title styling
+  &__title {
+    margin-left: 1rem;
+
+    //update positioning for tablet
+    @include tablet {
+      margin-left: 2.25rem;
+    }
+
+    //update positioning for desktop
+    @include desktop {
+      width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
 }
-h1 {
-  font-family: "Avenir Next Regular";
+
+//styling for about section
+.about {
+  @include light-section;
+  margin: 0 1rem;
+
+  //update margin for tablet
+  @include tablet {
+    margin: 0 2.25rem;
+  }
+
+  //update margin for desktop
+  @include desktop {
+    width: 63.75rem;
+    margin: 0 auto;
+  }
+
+  //additional margin for beginning of about section
+  &__subsection {
+    //updates additional margin for tablet
+    @include tablet {
+      margin: 0 3.75rem;
+    }
+
+    //updates additional margin for desktop
+    @include desktop {
+      margin: 0 5.5rem;
+    }
+  }
+  &__title {
+    padding-top: 3.5rem;
+  }
+
+  //styling for about main image
+  &__image {
+    object-fit: fill;
+    width: 100%;
+    height: 55vw;
+
+    @include tablet {
+      height: 40vw;
+    }
+  }
+
+  //styling for quote bottom padding
+  &__quote {
+    padding-bottom: 0.5rem;
+
+    //formats paragraph width to fit tablet mockup
+    @include tablet {
+      padding-bottom: 1rem;
+      width: 100%;
+      font-size: 1.4rem;
+    }
+
+    //formats paragraph width to fit desktop mockup
+    @include desktop {
+      width: 86%;
+      font-size: 1.5rem;
+    }
+  }
+
+  //formatting for "Bryan Teddy" line
+  &__speaker {
+    padding: 0;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+  }
+
+  //formatting for article portion of about section, including header
+  &__article {
+    padding-right: 0.25rem;
+
+    //changes paragraph formatting to row for tablet and wider
+    @include tablet {
+      @include flex(row, space-between);
+    }
+    &__header {
+      padding-bottom: 1.5rem;
+    }
+
+    //padding formatting for paragraphs, update column width for tablet and wider
+    &__paragraph {
+      padding-top: 0;
+      @include tablet {
+        width: 49%;
+      }
+      &2 {
+        @extend .about__article__paragraph;
+        width: 98%;
+        @include tablet {
+          width: 49%;
+        }
+      }
+    }
+  }
+}
+
+//styling for photo gallery seciton
+.gallery {
+  background-color: $alabaster;
+  color: $bandsite-black;
+
+  //margin within gallery section
+  & > * {
+    margin: 0 1rem;
+
+    //update margin for tablet
+    @include tablet {
+      margin: 0 2.25rem;
+    }
+
+    //update margin for desktop
+    @include desktop {
+      width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
+
+  //updates layout of photos in tablet width and greater
+  &__photos {
+    @include tablet {
+      @include flex(column, center);
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  //configures photo gallery rows for tablet width and greater
+  &__row {
+    @include tablet {
+      @include flex(row, center);
+      gap: 1.5rem;
+      width: 100%;
+    }
+  }
+
+  //styling for individual photos
+  &__photo {
+    object-fit: fill;
+    width: 100%;
+    padding: 0.5rem 0;
+
+    //filter for deep dive
+    filter: grayscale(100%);
+
+    //changes individual photo width for tablet
+    @include tablet {
+      width: 31%;
+      padding: 0;
+    }
+
+    //changes individual photo width for desktop
+    @include desktop {
+      width: 32%;
+    }
+
+    //animation for hover
+    &:hover {
+      animation: photo-hover 1s;
+      animation-fill-mode: forwards;
+    }
+  }
 }
