@@ -16,10 +16,10 @@
             <img src="assets/logos/Logo-bandsite.svg" class="nav__logo"
           /></a>
           <ul class="nav__links">
-            <a href="#" class="nav__url"
+            <a href="./index.html" class="nav__url"
               ><li class="nav__link nav__link--selected">Biography</li></a
             >
-            <a href="#" class="nav__url"
+            <a href="./pages/shows.html" class="nav__url"
               ><li class="nav__link nav__link--unselected">Shows</li></a
             >
           </ul>
@@ -137,6 +137,21 @@
           </div>
         </article>
       </section>
+      <section class="comments">
+        <h2 class="comments__title">Join the Conversation</h2>
+        <article class="comments__form">
+          <label for="name" class="comments__form__name">NAME</label>
+          <input type="text" class="comments__form__name-field" id="name" />
+          <label for="comment" class="comments__form__comment">COMMENT</label>
+          <input
+            type="text"
+            class="comments__form__comment-field"
+            id="comment"
+          />
+          <button class="comments__form__button">COMMENT</button>
+        </article>
+        <section class="comments__content"></section>
+      </section>
     </main>
     <!-- footer section -->
     <footer>
@@ -224,6 +239,6 @@
         </section>
       </div>
     </footer>
+    <script src="./scripts/index-page.js"></script>
   </body>
-  <script type="text/javascript" src="./script.js"></script>
 </html>
