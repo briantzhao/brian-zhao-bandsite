@@ -300,6 +300,9 @@
       padding: 0.75rem;
       color: $bandsite-black;
       min-height: 2.25rem;
+      &:focus {
+        outline: none;
+      }
       @include tablet {
         min-height: 3rem;
         padding: 1rem;

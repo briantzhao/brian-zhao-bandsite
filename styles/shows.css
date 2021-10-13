@@ -508,6 +508,11 @@ footer {
   }
 }
 
+@media (min-width: 768px) {
+  .shows__styling {
+    margin: 1rem;
+  }
+}
 @media (min-width: 1280px) {
   .shows__styling {
     display: flex;
@@ -522,50 +527,84 @@ footer {
 }
 @media (min-width: 768px) {
   .shows__title {
-    margin-left: 2.25rem;
+    margin-left: 1.25rem;
   }
+}
+.shows__list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
 }
 @media (min-width: 1280px) {
   .shows__list {
     width: 80%;
   }
 }
-.shows__object {
-  padding: 1rem;
-  border-bottom: 1px solid #e1e1e1;
-}
-.shows__object:hover, .shows__object:active {
-  background-color: #fafafa;
+.shows__list th {
+  display: none;
 }
 @media (min-width: 768px) {
-  .shows__object {
-    padding-left: 2.25rem;
-    padding-right: 2.25rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
+  .shows__list th {
+    display: table-cell;
+    padding-left: 1.25rem;
   }
 }
-.shows h3 {
-  padding-top: 0;
+.shows__list td {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .shows__list td {
+    display: table-cell;
+    padding: 0;
+    padding-left: 1.25rem;
+  }
+}
+.shows__list td:before {
+  margin-bottom: 0.5rem;
+  font-family: "Avenir Next Demi";
+  font-size: 0.8rem;
+  color: #e1e1e1;
+}
+@media (min-width: 768px) {
+  .shows__list td:before {
+    display: none;
+  }
+}
+.shows__list td:nth-child(1):before {
+  content: "DATE";
+}
+.shows__list td:nth-child(2):before {
+  content: "VENUE";
+}
+.shows__list td:nth-child(3):before {
+  content: "LOCATION";
+}
+.shows__single {
+  border-bottom: 1px solid #e1e1e1;
 }
 .shows__label {
   font-size: 0.8rem;
   color: #e1e1e1;
   padding-bottom: 0.5rem;
+  text-align: left;
+  font-family: "Avenir Next Demi";
 }
-.shows__date, .shows__venue, .shows__location {
-  font-size: 0.875rem;
-}
-@media (min-width: 768px) {
-  .shows__date, .shows__venue, .shows__location {
-    padding-bottom: 0.5rem;
-  }
+.shows__date {
+  font-family: "Avenir Next Demi";
 }
 .shows__venue, .shows__location {
   font-family: "Avenir Next Regular";
   font-weight: lighter;
+}
+@media (min-width: 768px) {
+  .shows__button {
+    text-align: right;
+  }
 }
 .shows__btn {
   background-color: #323232;
@@ -577,6 +616,9 @@ footer {
 @media (min-width: 768px) {
   .shows__btn {
     width: 10rem;
-    height: 3rem;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    margin-right: 1.25rem;
   }
 }/*# sourceMappingURL=shows.css.map */

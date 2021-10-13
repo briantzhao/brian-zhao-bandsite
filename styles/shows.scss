@@ -105,6 +105,9 @@
 }
 .shows {
   &__styling {
+    @include tablet {
+      margin: 1rem;
+    }
     @include desktop {
       @include flex(row, space-between);
       width: 63.75rem;
@@ -114,48 +117,103 @@
   &__title {
     margin-left: 1rem;
     @include tablet {
-      margin-left: 2.25rem;
+      margin-left: 1.25rem;
     }
   }
   &__list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
     @include desktop {
       width: 80%;
     }
+    th {
+      display: none;
+      @include tablet {
+        display: table-cell;
+        padding-left: 1.25rem;
+      }
+    }
+    td {
+      @include flex(column, center);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      @include tablet {
+        display: table-cell;
+        padding: 0;
+        padding-left: 1.25rem;
+      }
+    }
+    td:before {
+      margin-bottom: 0.5rem;
+      font-family: "Avenir Next Demi";
+      font-size: 0.8rem;
+      color: $mercury;
+      @include tablet {
+        display: none;
+      }
+    }
+    td:nth-child(1):before {
+      content: "DATE";
+    }
+    td:nth-child(2):before {
+      content: "VENUE";
+    }
+    td:nth-child(3):before {
+      content: "LOCATION";
+    }
+    // tr {
+    //   border-bottom: 1px solid $mercury;
+    // }
   }
-  &__object {
-    padding: 1rem;
+  &__single {
     border-bottom: 1px solid $mercury;
-    &:hover,
-    &:active {
-      background-color: $alabaster;
-    }
-    @include tablet {
-      padding-left: 2.25rem;
-      padding-right: 2.25rem;
-      @include flex(row, space-between);
-      align-items: flex-end;
-    }
   }
-  h3 {
-    padding-top: 0;
-  }
+
+  //   &__object {
+  //     padding: 1rem;
+  //     border-bottom: 1px solid $mercury;
+  //     &:hover {
+  //       background-color: $alabaster;
+  //     }
+  //     @include tablet {
+  //       padding-left: 2.25rem;
+  //       padding-right: 2.25rem;
+  //       @include flex(row, space-between);
+  //       align-items: flex-end;
+  //     }
+  //   }
+  //   h3 {
+  //     padding-top: 0;
+  //   }
   &__label {
     font-size: 0.8rem;
     color: $mercury;
     padding-bottom: 0.5rem;
+    text-align: left;
+    font-family: "Avenir Next Demi";
   }
-  &__date,
-  &__venue,
-  &__location {
-    font-size: 0.875rem;
-    @include tablet {
-      padding-bottom: 0.5rem;
-    }
+  //   &__date,
+  //   &__venue,
+  //   &__location {
+  //     font-size: 0.875rem;
+  //     @include tablet {
+  //       padding-bottom: 0.5rem;
+  //     }
+  //   }
+  &__date {
+    font-family: "Avenir Next Demi";
   }
   &__venue,
   &__location {
     font-family: "Avenir Next Regular";
     font-weight: lighter;
+  }
+  &__button {
+    @include tablet {
+      text-align: right;
+    }
   }
   &__btn {
     @include dark-section;
@@ -165,7 +223,10 @@
 
     @include tablet {
       width: 10rem;
-      height: 3rem;
+      height: 2rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      margin-right: 1.25rem;
     }
   }
 }

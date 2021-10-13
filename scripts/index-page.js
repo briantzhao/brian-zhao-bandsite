@@ -38,7 +38,7 @@ function createChild(parent, object, key) {
 }
 
 function displayComment(comment) {
-  let content = document.createElement("article");
+  let content = document.createElement("li");
   let picSec = document.createElement("div");
   let pic = document.createElement("div");
   let textSec = document.createElement("div");
@@ -62,27 +62,27 @@ function displayComment(comment) {
 }
 
 const form = document.getElementById("form");
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  if (e.target.name.value == "") {
-    formError(e.target.name, true);
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  if (event.target.name.value == "") {
+    formError(event.target.name, true);
     alert("Please enter a valid name");
-    formError(e.target.comment, false);
-    if (e.target.comment.value == "") {
-      formError(e.target.comment, true);
+    formError(event.target.comment, false);
+    if (event.target.comment.value == "") {
+      formError(event.target.comment, true);
       alert("Please enter a valid comment");
     }
-  } else if (e.target.comment.value == "") {
-    formError(e.target.comment, true);
-    formError(e.target.name, false);
+  } else if (event.target.comment.value == "") {
+    formError(event.target.comment, true);
+    formError(event.target.name, false);
     alert("Please enter a valid comment");
   } else {
-    formError(e.target.name, false);
-    formError(e.target.comment, false);
+    formError(event.target.name, false);
+    formError(event.target.comment, false);
     let newComment = {};
-    newComment.name = e.target.name.value;
+    newComment.name = event.target.name.value;
     newComment.date = todaysDate();
-    newComment.quote = e.target.comment.value;
+    newComment.quote = event.target.comment.value;
     newComment.noProfile = false;
     comments.unshift(newComment);
     clearList();
@@ -90,8 +90,7 @@ form.addEventListener("submit", function (e) {
     let profilePic = document.querySelector(".comments__form__profile");
     commentsList.firstChild.firstChild.firstChild.style.backgroundImage =
       profilePic.style.backgroundImage;
-    e.target.name.value = "";
-    e.target.comment.value = "";
+    form.reset();
   }
 });
 

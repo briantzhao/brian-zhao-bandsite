@@ -695,6 +695,9 @@ footer {
   color: #323232;
   min-height: 2.25rem;
 }
+.comments__form__name-field:focus, .comments__form__comment-field:focus {
+  outline: none;
+}
 @media (min-width: 768px) {
   .comments__form__name-field, .comments__form__comment-field {
     min-height: 3rem;
