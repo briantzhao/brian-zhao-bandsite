@@ -685,14 +685,21 @@ footer {
   color: #afafaf;
   font-size: 0.8125rem;
   line-height: 1.125rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 .comments__form__name-field, .comments__form__comment-field {
   background-color: #fafafa;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 1px solid #e1e1e1;
-  padding: 0.5rem;
+  padding: 0.75rem;
   color: #323232;
+  min-height: 2.25rem;
+}
+@media (min-width: 768px) {
+  .comments__form__name-field, .comments__form__comment-field {
+    min-height: 3rem;
+    padding: 1rem;
+  }
 }
 .comments__form__comment-field {
   height: 5rem;

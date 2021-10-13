@@ -140,7 +140,7 @@
       <section class="comments">
         <h2 class="comments__title">Join the Conversation</h2>
         <div class="comments__formatting">
-          <article class="comments__form">
+          <form class="comments__form" id="form">
             <div class="comments__form__profile"></div>
             <div class="comments__form__input">
               <div class="comments__form__pair">
@@ -149,24 +149,27 @@
                   type="text"
                   class="comments__form__name-field"
                   id="name"
-                  value="Enter your name"
+                  name="name"
+                  placeholder="Enter your name"
                 />
               </div>
               <div class="comments__form__pair">
                 <label for="comment" class="comments__form__comment"
                   >COMMENT</label
                 >
-                <input
-                  type="text"
+                <textarea
+                  name="comment"
                   class="comments__form__comment-field"
                   id="comment"
-                  value="Add a new comment"
-                />
+                  placeholder="Add a new comment"
+                ></textarea>
               </div>
-              <button class="comments__form__button">COMMENT</button>
+              <button type="submit" class="comments__form__button">
+                COMMENT
+              </button>
             </div>
-          </article>
-          <section class="comments__content"></section>
+          </form>
+          <section class="comments__content" id="comments__content"></section>
         </div>
       </section>
     </main>
