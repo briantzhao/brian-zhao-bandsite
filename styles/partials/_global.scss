@@ -266,7 +266,7 @@ footer {
 
   //adjust width for desktop
   @include desktop {
-    width: 38%;
+    width: 40%;
   }
 
   &-header {
@@ -282,6 +282,9 @@ footer {
     @include tablet {
       width: 50%;
       margin-top: 0.5rem;
+    }
+    @include desktop {
+      width: 55%;
     }
   }
 
@@ -309,7 +312,7 @@ footer {
 
   //update space taken for desktop
   @include desktop {
-    width: 70%;
+    width: 75%;
   }
   &-card {
     padding: 0;

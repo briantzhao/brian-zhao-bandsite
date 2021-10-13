@@ -139,18 +139,35 @@
       </section>
       <section class="comments">
         <h2 class="comments__title">Join the Conversation</h2>
-        <article class="comments__form">
-          <label for="name" class="comments__form__name">NAME</label>
-          <input type="text" class="comments__form__name-field" id="name" />
-          <label for="comment" class="comments__form__comment">COMMENT</label>
-          <input
-            type="text"
-            class="comments__form__comment-field"
-            id="comment"
-          />
-          <button class="comments__form__button">COMMENT</button>
-        </article>
-        <section class="comments__content"></section>
+        <div class="comments__formatting">
+          <article class="comments__form">
+            <div class="comments__form__profile"></div>
+            <div class="comments__form__input">
+              <div class="comments__form__pair">
+                <label for="name" class="comments__form__name">NAME</label>
+                <input
+                  type="text"
+                  class="comments__form__name-field"
+                  id="name"
+                  value="Enter your name"
+                />
+              </div>
+              <div class="comments__form__pair">
+                <label for="comment" class="comments__form__comment"
+                  >COMMENT</label
+                >
+                <input
+                  type="text"
+                  class="comments__form__comment-field"
+                  id="comment"
+                  value="Add a new comment"
+                />
+              </div>
+              <button class="comments__form__button">COMMENT</button>
+            </div>
+          </article>
+          <section class="comments__content"></section>
+        </div>
       </section>
     </main>
     <!-- footer section -->

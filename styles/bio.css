@@ -312,7 +312,7 @@ footer {
 }
 @media (min-width: 1280px) {
   .footer__social {
-    width: 38%;
+    width: 40%;
   }
 }
 .footer__social-header {
@@ -328,6 +328,11 @@ footer {
   .footer__social-icons {
     width: 50%;
     margin-top: 0.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__social-icons {
+    width: 55%;
   }
 }
 @media (min-width: 768px) {
@@ -355,7 +360,7 @@ footer {
 }
 @media (min-width: 1280px) {
   .footer__contact {
-    width: 70%;
+    width: 75%;
   }
 }
 .footer__contact-card {
@@ -598,4 +603,185 @@ footer {
           animation: photo-hover 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+.comments {
+  color: #323232;
+}
+.comments > * {
+  margin: 0 1rem;
+}
+@media (min-width: 768px) {
+  .comments > * {
+    margin: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comments > * {
+    width: 63.75rem;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
+  .comments__formatting {
+    margin-left: 6rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__formatting {
+    width: 40%;
+    margin: 0 auto;
+  }
+}
+.comments__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 1rem;
+}
+.comments__form__profile {
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+  background-image: url(../assets/images/Mohan-muruge.jpg);
+  background-size: cover;
+  margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .comments__form__profile {
+    height: 3rem;
+    width: 3rem;
+    margin-top: 1rem;
+  }
+}
+.comments__form__input {
+  width: 84%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .comments__form__input {
+    width: 90%;
+    position: relative;
+    padding-bottom: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__form__input {
+    width: 85%;
+  }
+}
+.comments__form__pair {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+.comments__form__name, .comments__form__comment {
+  font-family: "Avenir Next Regular";
+  color: #afafaf;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  padding-bottom: 0.5rem;
+}
+.comments__form__name-field, .comments__form__comment-field {
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #e1e1e1;
+  padding: 0.5rem;
+  color: #323232;
+}
+.comments__form__comment-field {
+  height: 5rem;
+  vertical-align: top;
+}
+.comments__form__button {
+  background-color: #323232;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .comments__form__button {
+    width: 10rem;
+    position: absolute;
+    bottom: 0.1rem;
+    right: 0;
+  }
+}
+.comments__content {
+  margin-bottom: 1rem;
+}
+.comments__single {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+}
+.comments__profile {
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+  background-color: #e1e1e1;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .comments__profile {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+.comments__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 84%;
+}
+@media (min-width: 768px) {
+  .comments__text {
+    width: 90%;
+  }
+  .comments__text p {
+    font-size: 0.9745rem;
+  }
+}
+@media (min-width: 768px) and (min-width: 1280px) {
+  .comments__text p {
+    font-size: 0.85rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__text {
+    width: 85%;
+  }
+}
+.comments__head-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comments__name {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .comments__name {
+    padding: 1rem 0;
+  }
+}
+.comments__date {
+  color: #e1e1e1;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .comments__date {
+    padding: 1rem 0;
+  }
+}
+.comments__quote {
+  padding-top: 0;
+  padding-bottom: 0.5rem;
 }/*# sourceMappingURL=bio.css.map */

@@ -29,6 +29,12 @@
   }
 }
 
+@mixin profile-pic {
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+}
+
 //media query for tablet view
 @mixin tablet {
   @media (min-width: 768px) {

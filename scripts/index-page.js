@@ -23,23 +23,7 @@ const commentsList = document.querySelector(".comments__content");
 createList(comments);
 function createList(comments) {
   for (let i = 0; i < comments.length; i++) {
-    let comment = document.createElement("article");
-    let picSec = document.createElement("div");
-    let pic = document.createElement("img");
-    let textSec = document.createElement("div");
-    let headSec = document.createElement("div");
-    comment.classList.add("comments__single");
-    comment.appendChild(picSec);
-    picSec.appendChild(pic);
-    pic.classList.add("comments__profile");
-    comment.appendChild(textSec);
-    textSec.classList.add("comments__text");
-    textSec.appendChild(headSec);
-    headSec.classList.add("comments__head-section");
-    createChild(headSec, comments[i], "name");
-    createChild(headSec, comments[i], "date");
-    createChild(textSec, comments[i], "quote");
-    commentsList.appendChild(comment);
+    displayComment(comments[i]);
   }
 }
 
@@ -48,4 +32,24 @@ function createChild(parent, object, key) {
   commentChild.classList.add(`comments__${key}`);
   commentChild.innerText = object[key];
   parent.appendChild(commentChild);
+}
+
+function displayComment(comment) {
+  let content = document.createElement("article");
+  let picSec = document.createElement("div");
+  let pic = document.createElement("div");
+  let textSec = document.createElement("div");
+  let headSec = document.createElement("div");
+  content.classList.add("comments__single");
+  content.appendChild(picSec);
+  picSec.appendChild(pic);
+  pic.classList.add("comments__profile");
+  content.appendChild(textSec);
+  textSec.classList.add("comments__text");
+  textSec.appendChild(headSec);
+  headSec.classList.add("comments__head-section");
+  createChild(headSec, comment, "name");
+  createChild(headSec, comment, "date");
+  createChild(textSec, comment, "quote");
+  commentsList.appendChild(content);
 }

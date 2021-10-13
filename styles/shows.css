@@ -312,7 +312,7 @@ footer {
 }
 @media (min-width: 1280px) {
   .footer__social {
-    width: 38%;
+    width: 40%;
   }
 }
 .footer__social-header {
@@ -328,6 +328,11 @@ footer {
   .footer__social-icons {
     width: 50%;
     margin-top: 0.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__social-icons {
+    width: 55%;
   }
 }
 @media (min-width: 768px) {
@@ -355,7 +360,7 @@ footer {
 }
 @media (min-width: 1280px) {
   .footer__contact {
-    width: 70%;
+    width: 75%;
   }
 }
 .footer__contact-card {

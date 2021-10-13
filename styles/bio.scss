@@ -223,3 +223,154 @@
     }
   }
 }
+
+.comments {
+  color: $bandsite-black;
+
+  //margin within comments section
+  & > * {
+    margin: 0 1rem;
+
+    //update margin for tablet
+    @include tablet {
+      margin: 0 2.25rem;
+    }
+
+    //update margin for desktop
+    @include desktop {
+      width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
+  &__formatting {
+    @include tablet {
+      margin-left: 6rem;
+    }
+    @include desktop {
+      width: 40%;
+      margin: 0 auto;
+    }
+  }
+  &__form {
+    @include flex(row, space-between);
+    border-bottom: 1px solid $mercury;
+    padding-bottom: 1rem;
+
+    &__profile {
+      @include profile-pic;
+      background-image: url(../assets/images/Mohan-muruge.jpg);
+      background-size: cover;
+      margin-top: 1.5rem;
+      @include tablet {
+        height: 3rem;
+        width: 3rem;
+        margin-top: 1rem;
+      }
+    }
+    &__input {
+      width: 84%;
+
+      @include flex(column, center);
+      gap: 1rem;
+      @include tablet {
+        width: 90%;
+        position: relative;
+        padding-bottom: 4rem;
+      }
+      @include desktop {
+        width: 85%;
+      }
+    }
+    &__pair {
+      @include flex(column, center);
+      padding-bottom: 0.5rem;
+    }
+    &__name,
+    &__comment {
+      font-family: "Avenir Next Regular";
+      color: $silver;
+      font-size: 0.8125rem;
+      line-height: 1.125rem;
+      padding-bottom: 0.5rem;
+    }
+    &__name-field {
+      // &__comment-field {
+      background-color: $alabaster;
+      border-radius: 5px;
+      border: 1px solid $mercury;
+      padding: 0.5rem;
+      color: $bandsite-black;
+      // height: 5rem;
+      // vertical-align: top;
+    }
+    &__comment-field {
+      @extend .comments__form__name-field;
+      height: 5rem;
+      vertical-align: top;
+    }
+    &__button {
+      @include dark-section;
+      border-radius: 10px;
+      padding: 1rem;
+      @include tablet {
+        width: 10rem;
+        position: absolute;
+        bottom: 0.1rem;
+        right: 0;
+      }
+    }
+  }
+  &__content {
+    margin-bottom: 1rem;
+  }
+  &__single {
+    @include flex(row, space-between);
+    border-bottom: 1px solid $mercury;
+  }
+  &__profile {
+    @include profile-pic;
+    background-color: $mercury;
+    margin-top: 1rem;
+    @include tablet {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+  &__text {
+    @include flex(column, flex-start);
+    width: 84%;
+    @include tablet {
+      width: 90%;
+      & p {
+        font-size: 0.9745rem;
+        @include desktop {
+          font-size: 0.85rem;
+        }
+      }
+    }
+    @include desktop {
+      width: 85%;
+    }
+  }
+  &__head-section {
+    @include flex(row, space-between);
+  }
+  &__name {
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    @include tablet {
+      padding: 1rem 0;
+    }
+  }
+  &__date {
+    color: $mercury;
+    padding-bottom: 0.5rem;
+    @include tablet {
+      padding: 1rem 0;
+    }
+  }
+  &__quote {
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+  }
+}
