@@ -9,21 +9,20 @@
   position: relative;
   height: 100vw;
   background-size: cover;
-  background-position-x: left;
+  background-position: center;
   transform: scaleX(-1);
 
   //update hero image positioning and size for tablet
   @include tablet {
-    background-size: 105vw;
-    background-position-x: center;
-    background-position-y: bottom;
-    height: 62.5vw;
+    background-size: cover;
+    background-position: center;
+    height: 70vw;
 
     //update hero image positioning and size for desktop
     @include desktop {
       background-size: cover;
       background-position: center -4rem;
-      height: 46vw;
+      height: 50vw;
     }
   }
 
@@ -71,7 +70,7 @@
     padding: 0;
     @include tablet {
       margin-left: 2.25rem;
-      margin-top: 5rem;
+      margin-top: 0;
     }
   }
 
@@ -98,12 +97,13 @@
     border-radius: 5px;
     @include tablet {
       margin-left: 2.25rem;
-      width: 60vw;
+      width: 50vw;
+      height: 20vw;
     }
     @include desktop {
       width: 30vw;
       height: 10vw;
-      margin-top: 8rem;
+      margin: auto 0;
     }
   }
 }
@@ -148,22 +148,27 @@
     color: $mercury;
     padding-bottom: 0.5rem;
     text-align: left;
-    font-family: "Avenir Next Demi";
+    font-family: "Avenir Next Regular";
     display: none;
     @include tablet {
       display: table-cell;
       padding-left: 1.25rem;
     }
+    @include desktop {
+      padding-bottom: 1rem;
+    }
   }
   //styling for rows
   &__single {
+    padding: 1rem;
     border-bottom: 1px solid $mercury;
     @include flex(column, center);
     @include tablet {
       display: table-row;
+      padding: 1.5rem 1.125rem;
     }
     &:hover {
-      background: $mercury;
+      background: $alabaster;
     }
     &--selected {
       background-color: $mercury !important;
@@ -176,8 +181,6 @@
   &__location {
     @include flex(column, center);
     margin: 1rem 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
     @include tablet {
       display: table-cell;
       padding: 1.25rem;
@@ -216,7 +219,6 @@
 
   //styling for button table cell
   &__button {
-    margin: 1rem;
     @include tablet {
       text-align: right;
     }
@@ -225,16 +227,22 @@
   //styling for button itself
   &__btn {
     @include dark-section;
-    font-family: "Avenir Next Demi";
-    border-radius: 10px;
+    font-family: "Avenir Next Regular";
+    border-radius: 4px;
     padding: 1rem;
     width: 100%;
+    height: 2.5rem;
 
     @include tablet {
-      width: 10rem;
+      min-width: 9.375rem;
       height: 3rem;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    &:hover {
+      background-color: $bandsite-darkblack;
     }
   }
 }

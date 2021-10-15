@@ -198,6 +198,7 @@ a {
     justify-content: center;
     gap: 3.5rem;
     margin-left: 3.5rem;
+    margin-top: 1rem;
   }
 }
 @media (min-width: 1280px) {
@@ -685,7 +686,7 @@ footer {
   color: #afafaf;
   font-size: 0.8125rem;
   line-height: 1.125rem;
-  padding-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 .comments__form__name-field, .comments__form__comment-field {
   background-color: #fafafa;
@@ -693,6 +694,7 @@ footer {
   border: 1px solid #e1e1e1;
   padding: 0.75rem;
   color: #323232;
+  font-family: "Avenir Next Regular";
   min-height: 2.25rem;
 }
 .comments__form__name-field:focus, .comments__form__comment-field:focus {
@@ -712,18 +714,24 @@ footer {
 .comments__form__button {
   background-color: #323232;
   color: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 4px;
+  height: 2.5rem;
 }
 @media (min-width: 768px) {
   .comments__form__button {
-    width: 10rem;
+    min-width: 9.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     position: absolute;
     bottom: 0.1rem;
     right: 0;
   }
 }
+.comments__form__button:hover {
+  background-color: #000000;
+}
 .comments__content {
+  padding-top: 0;
   margin-bottom: 1rem;
 }
 .comments__single {
@@ -731,6 +739,12 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #e1e1e1;
+  padding-top: 0;
+}
+@media (min-width: 768px) {
+  .comments__single {
+    padding-top: 1rem;
+  }
 }
 .comments__profile {
   height: 2.25rem;
@@ -743,6 +757,11 @@ footer {
   .comments__profile {
     height: 3rem;
     width: 3rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__profile {
+    margin-top: 0;
   }
 }
 .comments__text {
@@ -783,6 +802,11 @@ footer {
     padding: 1rem 0;
   }
 }
+@media (min-width: 1280px) {
+  .comments__name {
+    padding: 0;
+  }
+}
 .comments__date {
   color: #e1e1e1;
   padding-bottom: 0.5rem;
@@ -790,6 +814,11 @@ footer {
 @media (min-width: 768px) {
   .comments__date {
     padding: 1rem 0;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__date {
+    padding: 0;
   }
 }
 .comments__quote {

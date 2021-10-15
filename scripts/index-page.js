@@ -64,12 +64,14 @@ function displayComment(comment) {
 function createChild(parent, object, key) {
   let commentChild = document.createElement("p");
   commentChild.classList.add(`comments__${key}`);
-  //   if (key ==="date") {
-  //     commentChild.innerText = convertDate(object[key]);
-  //   } else {
-  //   commentChild.innerText = object[key];
-  //   }
-  commentChild.innerText = object[key];
+
+  //handles date conversion, function shown at bottom
+  if (key === "date") {
+    commentChild.innerText = convertDate(object[key]);
+  } else {
+    commentChild.innerText = object[key];
+  }
+  //   commentChild.innerText = object[key]; placeholder for date w/o conversion
   parent.appendChild(commentChild);
 }
 
@@ -144,23 +146,31 @@ function formError(field, error) {
   }
 }
 
+//diving deeper: converts date to relative duration
 function convertDate(date) {
-  const month = parseInt(date.substr(0, 1));
+  //get key value date
+  const month = parseInt(date.substr(0, 2));
   const day = parseInt(date.substr(3, 4));
   const year = parseInt(date.substr(6));
   const d = new Date();
+
+  //get today's date
   const todayMonth = parseInt(d.getMonth()) + 1;
   const todayDay = parseInt(d.getDate());
   const todayYear = parseInt(d.getFullYear());
-  if (todayYear - year > 1) {
-    if (todayMonth - month >= 0) {
-      return "Over a year ago";
-    } else {
-      return 12 + todayMonth - month + " months ago";
-    }
-  } else if (todayMonth - month > 0) {
-    if (todayMonth - month > 1) {
-      return todayMonth - month + " months ago";
-    }
+
+  //calculate days since 0AD
+  const adDays = day + 30 * (month + 12 * year);
+  const adToday = todayDay + 30 * (todayMonth + 12 * todayYear);
+  const diff = adToday - adDays;
+
+  //check if we should represent in years, months, days, or "Just now"
+  if (diff / 365 > 1) {
+    return "Over a year ago";
+  } else if (diff / 30 > 1) {
+    return `${Math.round(diff / 30)} months ago`;
+  } else if (diff > 1) {
+    return `${diff} days ago`;
   }
+  return "Just now";
 }
