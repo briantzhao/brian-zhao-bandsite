@@ -707,6 +707,7 @@ footer {
 .comments__form__comment-field {
   height: 5rem;
   vertical-align: top;
+  resize: none;
 }
 .comments__form__button {
   background-color: #323232;

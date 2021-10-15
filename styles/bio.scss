@@ -231,17 +231,17 @@
   & > * {
     margin: 0 1rem;
 
-    //update margin for tablet
     @include tablet {
       margin: 0 2.25rem;
     }
 
-    //update margin for desktop
     @include desktop {
       width: 63.75rem;
       margin: 0 auto;
     }
   }
+
+  //additional margin for comments section
   &__formatting {
     @include tablet {
       margin-left: 6rem;
@@ -251,11 +251,14 @@
       margin: 0 auto;
     }
   }
+
+  //form styling
   &__form {
     @include flex(row, space-between);
     border-bottom: 1px solid $mercury;
     padding-bottom: 1rem;
 
+    //profile picture styling
     &__profile {
       @include profile-pic;
       background-image: url(../assets/images/Mohan-muruge.jpg);
@@ -267,6 +270,8 @@
         margin-top: 1rem;
       }
     }
+
+    //input section styling
     &__input {
       width: 84%;
 
@@ -281,10 +286,14 @@
         width: 85%;
       }
     }
+
+    //pairs for label-input portions
     &__pair {
       @include flex(column, center);
       padding-bottom: 0.5rem;
     }
+
+    //styling for labels
     &__name,
     &__comment {
       font-family: "Avenir Next Regular";
@@ -293,6 +302,8 @@
       line-height: 1.125rem;
       padding-bottom: 0.25rem;
     }
+
+    //styling for name field
     &__name-field {
       background-color: $alabaster;
       border-radius: 4px;
@@ -308,11 +319,16 @@
         padding: 1rem;
       }
     }
+
+    //styling for comment field
     &__comment-field {
       @extend .comments__form__name-field;
       height: 5rem;
       vertical-align: top;
+      resize: none;
     }
+
+    //COMMENT button styling
     &__button {
       @include dark-section;
       border-radius: 10px;
@@ -325,13 +341,19 @@
       }
     }
   }
+
+  //adds margin to bottom of comments list
   &__content {
     margin-bottom: 1rem;
   }
+
+  //styling for individual comments
   &__single {
     @include flex(row, space-between);
     border-bottom: 1px solid $mercury;
   }
+
+  //styling for profile picture
   &__profile {
     @include profile-pic;
     background-color: $mercury;
@@ -341,6 +363,8 @@
       width: 3rem;
     }
   }
+
+  //styling for text portion of comment
   &__text {
     @include flex(column, flex-start);
     width: 84%;
@@ -357,9 +381,13 @@
       width: 85%;
     }
   }
+
+  //styling for top part of text section
   &__head-section {
     @include flex(row, space-between);
   }
+
+  //styling for comment name
   &__name {
     font-weight: bold;
     padding-bottom: 0.5rem;
@@ -367,6 +395,8 @@
       padding: 1rem 0;
     }
   }
+
+  //styling for comment date
   &__date {
     color: $mercury;
     padding-bottom: 0.5rem;
@@ -374,6 +404,8 @@
       padding: 1rem 0;
     }
   }
+
+  //styling for comment quote
   &__quote {
     padding-top: 0;
     padding-bottom: 0.5rem;

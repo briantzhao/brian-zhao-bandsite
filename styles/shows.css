@@ -406,7 +406,7 @@ footer {
   position: relative;
   height: 100vw;
   background-size: cover;
-  background-position: center;
+  background-position-x: left;
   transform: scaleX(-1);
 }
 @media (min-width: 768px) {
@@ -535,21 +535,49 @@ footer {
   border-collapse: collapse;
   margin-bottom: 1rem;
 }
+@media (min-width: 768px) {
+  .shows__list {
+    margin-bottom: 2.25rem;
+  }
+}
 @media (min-width: 1280px) {
   .shows__list {
     width: 80%;
+    margin-top: 3rem;
   }
 }
-.shows__list th {
+.shows__label {
+  font-size: 0.8rem;
+  color: #e1e1e1;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  font-family: "Avenir Next Demi";
   display: none;
 }
 @media (min-width: 768px) {
-  .shows__list th {
+  .shows__label {
     display: table-cell;
     padding-left: 1.25rem;
   }
 }
-.shows__list td {
+.shows__single {
+  border-bottom: 1px solid #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .shows__single {
+    display: table-row;
+  }
+}
+.shows__single:hover {
+  background: #e1e1e1;
+}
+.shows__single--selected {
+  background-color: #e1e1e1 !important;
+}
+.shows__date, .shows__venue, .shows__location {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -558,48 +586,40 @@ footer {
   padding-right: 1rem;
 }
 @media (min-width: 768px) {
-  .shows__list td {
+  .shows__date, .shows__venue, .shows__location {
     display: table-cell;
-    padding: 0;
-    padding-left: 1.25rem;
+    padding: 1.25rem;
   }
 }
-.shows__list td:before {
+.shows__date:before, .shows__venue:before, .shows__location:before {
   margin-bottom: 0.5rem;
   font-family: "Avenir Next Demi";
   font-size: 0.8rem;
   color: #e1e1e1;
 }
 @media (min-width: 768px) {
-  .shows__list td:before {
+  .shows__date:before, .shows__venue:before, .shows__location:before {
     display: none;
   }
-}
-.shows__list td:nth-child(1):before {
-  content: "DATE";
-}
-.shows__list td:nth-child(2):before {
-  content: "VENUE";
-}
-.shows__list td:nth-child(3):before {
-  content: "LOCATION";
-}
-.shows__single {
-  border-bottom: 1px solid #e1e1e1;
-}
-.shows__label {
-  font-size: 0.8rem;
-  color: #e1e1e1;
-  padding-bottom: 0.5rem;
-  text-align: left;
-  font-family: "Avenir Next Demi";
 }
 .shows__date {
   font-family: "Avenir Next Demi";
 }
+.shows__date:before {
+  content: "DATE";
+}
+.shows__venue:before {
+  content: "VENUE";
+}
+.shows__location:before {
+  content: "LOCATION";
+}
 .shows__venue, .shows__location {
   font-family: "Avenir Next Regular";
   font-weight: lighter;
+}
+.shows__button {
+  margin: 1rem;
 }
 @media (min-width: 768px) {
   .shows__button {
@@ -609,6 +629,7 @@ footer {
 .shows__btn {
   background-color: #323232;
   color: #ffffff;
+  font-family: "Avenir Next Demi";
   border-radius: 10px;
   padding: 1rem;
   width: 100%;
@@ -616,9 +637,8 @@ footer {
 @media (min-width: 768px) {
   .shows__btn {
     width: 10rem;
-    height: 2rem;
+    height: 3rem;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    margin-right: 1.25rem;
   }
 }/*# sourceMappingURL=shows.css.map */

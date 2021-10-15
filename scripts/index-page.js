@@ -22,7 +22,10 @@ let comments = [
   },
 ];
 
+//grab comments section from HTML
 const commentsList = document.getElementById("comments__content");
+
+//create initial list of comments
 createList(comments);
 function createList(comments) {
   for (let i = 0; i < comments.length; i++) {
@@ -30,13 +33,7 @@ function createList(comments) {
   }
 }
 
-function createChild(parent, object, key) {
-  let commentChild = document.createElement("p");
-  commentChild.classList.add(`comments__${key}`);
-  commentChild.innerText = object[key];
-  parent.appendChild(commentChild);
-}
-
+//turns object into HTML element
 function displayComment(comment) {
   let content = document.createElement("li");
   let picSec = document.createElement("div");
@@ -45,6 +42,8 @@ function displayComment(comment) {
   let headSec = document.createElement("div");
   content.classList.add("comments__single");
   content.appendChild(picSec);
+
+  //determines if comment was auto-generated (noProfile), or user-generated
   if (comment.noProfile) {
     pic.classList.add("comments__profile");
   } else {
@@ -61,9 +60,25 @@ function displayComment(comment) {
   commentsList.appendChild(content);
 }
 
+//creates new child and appends to parent
+function createChild(parent, object, key) {
+  let commentChild = document.createElement("p");
+  commentChild.classList.add(`comments__${key}`);
+  //   if (key ==="date") {
+  //     commentChild.innerText = convertDate(object[key]);
+  //   } else {
+  //   commentChild.innerText = object[key];
+  //   }
+  commentChild.innerText = object[key];
+  parent.appendChild(commentChild);
+}
+
+//handles form submission
 const form = document.getElementById("form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+
+  //checks if form fields are empty
   if (event.target.name.value == "") {
     formError(event.target.name, true);
     alert("Please enter a valid name");
@@ -79,21 +94,29 @@ form.addEventListener("submit", function (event) {
   } else {
     formError(event.target.name, false);
     formError(event.target.comment, false);
+
+    //constructs new comment object from form submission
     let newComment = {};
     newComment.name = event.target.name.value;
     newComment.date = todaysDate();
     newComment.quote = event.target.comment.value;
+
+    // sets noProfile field to false to tell displayComment that appropriate class should be applied
     newComment.noProfile = false;
+
+    //adds new comment to existing array
     comments.unshift(newComment);
+
+    //clears comments section
     clearList();
+
+    //reconstructs comments
     createList(comments);
-    let profilePic = document.querySelector(".comments__form__profile");
-    commentsList.firstChild.firstChild.firstChild.style.backgroundImage =
-      profilePic.style.backgroundImage;
     form.reset();
   }
 });
 
+//renders today's date for new comment
 function todaysDate() {
   const d = new Date();
   let month;
@@ -105,16 +128,39 @@ function todaysDate() {
   return month + "/" + d.getDate() + "/" + d.getFullYear();
 }
 
+//clears comments list (I wrote this before we learned about innerHTML)
 function clearList() {
   while (commentsList.lastElementChild) {
     commentsList.removeChild(commentsList.lastElementChild);
   }
 }
 
+//changes form field to red on error, to standard otherwise
 function formError(field, error) {
   if (error) {
     field.style.borderColor = "#D22D2D";
   } else {
     field.style.borderColor = "#e1e1e1";
+  }
+}
+
+function convertDate(date) {
+  const month = parseInt(date.substr(0, 1));
+  const day = parseInt(date.substr(3, 4));
+  const year = parseInt(date.substr(6));
+  const d = new Date();
+  const todayMonth = parseInt(d.getMonth()) + 1;
+  const todayDay = parseInt(d.getDate());
+  const todayYear = parseInt(d.getFullYear());
+  if (todayYear - year > 1) {
+    if (todayMonth - month >= 0) {
+      return "Over a year ago";
+    } else {
+      return 12 + todayMonth - month + " months ago";
+    }
+  } else if (todayMonth - month > 0) {
+    if (todayMonth - month > 1) {
+      return todayMonth - month + " months ago";
+    }
   }
 }

@@ -9,7 +9,7 @@
   position: relative;
   height: 100vw;
   background-size: cover;
-  background-position: center;
+  background-position-x: left;
   transform: scaleX(-1);
 
   //update hero image positioning and size for tablet
@@ -38,6 +38,8 @@
 
     transform: scaleX(-1);
   }
+
+  //styling div that allows margins to be added w/o affecting hero image or shading
   &__styling {
     position: absolute;
     top: 0;
@@ -54,12 +56,15 @@
       margin: 0 auto;
     }
   }
+
+  //div to line up subtitle and title
   &__titles {
     @include desktop {
       width: 48%;
     }
   }
-  //title styling
+
+  //subtitle styling
   &__subtitle {
     margin-left: 1rem;
     margin-top: 2rem;
@@ -70,23 +75,22 @@
     }
   }
 
+  //title styling
   &__title {
     margin-left: 1rem;
     margin-top: 1rem;
     width: 65%;
     padding: 0;
-
-    //update positioning for tablet
     @include tablet {
       margin-left: 2.25rem;
       width: 70%;
     }
-
-    //update positioning for desktop
     @include desktop {
       width: 100%;
     }
   }
+
+  //SoundCloud iframe styling
   &__sample {
     width: 90%;
     height: 30vw;
@@ -104,6 +108,7 @@
   }
 }
 .shows {
+  //styling for margins, allows dividers to run across page in mobile
   &__styling {
     @include tablet {
       margin: 1rem;
@@ -114,38 +119,70 @@
       margin: 0 auto;
     }
   }
+
+  //styling for Shows header
   &__title {
     margin-left: 1rem;
     @include tablet {
       margin-left: 1.25rem;
     }
   }
+
+  //styling for shows list
   &__list {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
+    @include tablet {
+      margin-bottom: 2.25rem;
+    }
     @include desktop {
       width: 80%;
+      margin-top: 3rem;
     }
-    th {
-      display: none;
-      @include tablet {
-        display: table-cell;
-        padding-left: 1.25rem;
-      }
+  }
+
+  //styling for table headers, removes headers for mobile view
+  &__label {
+    font-size: 0.8rem;
+    color: $mercury;
+    padding-bottom: 0.5rem;
+    text-align: left;
+    font-family: "Avenir Next Demi";
+    display: none;
+    @include tablet {
+      display: table-cell;
+      padding-left: 1.25rem;
     }
-    td {
-      @include flex(column, center);
-      margin: 1rem 0;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      @include tablet {
-        display: table-cell;
-        padding: 0;
-        padding-left: 1.25rem;
-      }
+  }
+  //styling for rows
+  &__single {
+    border-bottom: 1px solid $mercury;
+    @include flex(column, center);
+    @include tablet {
+      display: table-row;
     }
-    td:before {
+    &:hover {
+      background: $mercury;
+    }
+    &--selected {
+      background-color: $mercury !important;
+    }
+  }
+
+  //set flex for date, venue, location, and their :before pseudoselectors
+  &__date,
+  &__venue,
+  &__location {
+    @include flex(column, center);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @include tablet {
+      display: table-cell;
+      padding: 1.25rem;
+    }
+    &:before {
       margin-bottom: 0.5rem;
       font-family: "Avenir Next Demi";
       font-size: 0.8rem;
@@ -154,79 +191,50 @@
         display: none;
       }
     }
-    td:nth-child(1):before {
-      content: "DATE";
-    }
-    td:nth-child(2):before {
-      content: "VENUE";
-    }
-    td:nth-child(3):before {
-      content: "LOCATION";
-    }
-    // tr {
-    //   border-bottom: 1px solid $mercury;
-    // }
-  }
-  &__single {
-    border-bottom: 1px solid $mercury;
   }
 
-  //   &__object {
-  //     padding: 1rem;
-  //     border-bottom: 1px solid $mercury;
-  //     &:hover {
-  //       background-color: $alabaster;
-  //     }
-  //     @include tablet {
-  //       padding-left: 2.25rem;
-  //       padding-right: 2.25rem;
-  //       @include flex(row, space-between);
-  //       align-items: flex-end;
-  //     }
-  //   }
-  //   h3 {
-  //     padding-top: 0;
-  //   }
-  &__label {
-    font-size: 0.8rem;
-    color: $mercury;
-    padding-bottom: 0.5rem;
-    text-align: left;
-    font-family: "Avenir Next Demi";
-  }
-  //   &__date,
-  //   &__venue,
-  //   &__location {
-  //     font-size: 0.875rem;
-  //     @include tablet {
-  //       padding-bottom: 0.5rem;
-  //     }
-  //   }
+  //change font for date, venue, and location
   &__date {
     font-family: "Avenir Next Demi";
+    &:before {
+      content: "DATE";
+    }
+  }
+
+  &__venue:before {
+    content: "VENUE";
+  }
+
+  &__location:before {
+    content: "LOCATION";
   }
   &__venue,
   &__location {
     font-family: "Avenir Next Regular";
     font-weight: lighter;
   }
+
+  //styling for button table cell
   &__button {
+    margin: 1rem;
     @include tablet {
       text-align: right;
     }
   }
+
+  //styling for button itself
   &__btn {
     @include dark-section;
+    font-family: "Avenir Next Demi";
     border-radius: 10px;
     padding: 1rem;
     width: 100%;
 
     @include tablet {
       width: 10rem;
-      height: 2rem;
+      height: 3rem;
       margin-bottom: 0.5rem;
       padding: 0.5rem;
-      margin-right: 1.25rem;
     }
   }
 }
