@@ -2,7 +2,11 @@
 
 # Description
 
+Sprint 1
 The purpose of this project is to practice media queries and responsive design while building a band site.
+
+Sprint 2
+The purpose of this project is to practice DOM manipulation and event handling with JavaScript.
 
 ## Usage
 

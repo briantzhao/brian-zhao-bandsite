@@ -697,9 +697,6 @@ footer {
   font-family: "Avenir Next Regular";
   min-height: 2.25rem;
 }
-.comments__form__name-field:focus, .comments__form__comment-field:focus {
-  outline: none;
-}
 @media (min-width: 768px) {
   .comments__form__name-field, .comments__form__comment-field {
     min-height: 3rem;
@@ -796,6 +793,8 @@ footer {
 .comments__name {
   font-weight: bold;
   padding-bottom: 0.5rem;
+  max-width: 60%;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .comments__name {

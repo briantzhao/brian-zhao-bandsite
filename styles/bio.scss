@@ -312,9 +312,9 @@
       color: $bandsite-black;
       font-family: "Avenir Next Regular";
       min-height: 2.25rem;
-      &:focus {
-        outline: none;
-      }
+      // &:focus {
+      //   outline: none;
+      // }
       @include tablet {
         min-height: 3rem;
         padding: 1rem;
@@ -405,6 +405,8 @@
   &__name {
     font-weight: bold;
     padding-bottom: 0.5rem;
+    max-width: 60%;
+    overflow: hidden;
     @include tablet {
       padding: 1rem 0;
     }
@@ -417,6 +419,7 @@
   &__date {
     color: $mercury;
     padding-bottom: 0.5rem;
+
     @include tablet {
       padding: 1rem 0;
     }

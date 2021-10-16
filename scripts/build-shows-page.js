@@ -1,3 +1,4 @@
+//array of shows
 const shows = [
   {
     date: "Mon Sept 06 2021",
@@ -53,7 +54,8 @@ showsTitle.innerText = "Shows";
 
 //creates table and column headers
 const showsTable = createChild(showsStyling, "table", "shows__list");
-const tableHeaders = createChild(showsTable, "tr", "shows__headers");
+const tableHead = createChild(showsTable, "thead", "shows__head");
+const tableHeaders = createChild(tableHead, "tr", "shows__headers");
 const thDate = createChild(tableHeaders, "th", "shows__label");
 thDate.innerText = "DATE";
 const thVenue = createChild(tableHeaders, "th", "shows__label");
@@ -61,13 +63,15 @@ thVenue.innerText = "VENUE";
 const thLocation = createChild(tableHeaders, "th", "shows__label");
 thLocation.innerText = "LOCATION";
 const thButton = createChild(tableHeaders, "th", "shows__label");
+const tableBody = createChild(showsTable, "tbody", "shows__body");
 
 //creates list of shows
 createList(shows);
 function createList(shows) {
   for (let i = 0; i < shows.length; i++) {
     //create table row and adds selected row class
-    const tableRow = createChild(showsTable, "tr", "shows__single");
+    // const tableRow = createChild(showsTable, "tr", "shows__single");
+    const tableRow = createChild(tableBody, "tr", "shows__single");
     tableRow.addEventListener("click", (event) => {
       tableRow.classList.toggle("shows__single--selected");
     });

@@ -1,3 +1,4 @@
+//array of pre-loaded comments (stores new comments later)
 let comments = [
   {
     name: "Connor Walton",
@@ -35,11 +36,11 @@ function createList(comments) {
 
 //turns object into HTML element
 function displayComment(comment) {
-  let content = document.createElement("li");
-  let picSec = document.createElement("div");
-  let pic = document.createElement("div");
-  let textSec = document.createElement("div");
-  let headSec = document.createElement("div");
+  const content = document.createElement("li");
+  const picSec = document.createElement("div");
+  const pic = document.createElement("div");
+  const textSec = document.createElement("div");
+  const headSec = document.createElement("div");
   content.classList.add("comments__single");
   content.appendChild(picSec);
 
@@ -62,7 +63,7 @@ function displayComment(comment) {
 
 //creates new child and appends to parent
 function createChild(parent, object, key) {
-  let commentChild = document.createElement("p");
+  const commentChild = document.createElement("p");
   commentChild.classList.add(`comments__${key}`);
 
   //handles date conversion, function shown at bottom
@@ -98,7 +99,7 @@ form.addEventListener("submit", function (event) {
     formError(event.target.comment, false);
 
     //constructs new comment object from form submission
-    let newComment = {};
+    const newComment = {};
     newComment.name = event.target.name.value;
     newComment.date = todaysDate();
     newComment.quote = event.target.comment.value;

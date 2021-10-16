@@ -5,12 +5,11 @@
 @use "./partials/animations" as *;
 // hero section styling
 .hero {
-  background: url(../assets/images/Photo-gallery-3.jpg);
+  background: url(../assets/images/hero-shows.jpg);
   position: relative;
-  height: 100vw;
+  height: 80vw;
   background-size: cover;
-  background-position: center;
-  transform: scaleX(-1);
+  background-position: left;
 
   //update hero image positioning and size for tablet
   @include tablet {
@@ -34,8 +33,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-
-    transform: scaleX(-1);
   }
 
   //styling div that allows margins to be added w/o affecting hero image or shading
@@ -91,7 +88,7 @@
 
   //SoundCloud iframe styling
   &__sample {
-    width: 90%;
+    width: 89%;
     height: 30vw;
     margin: 1rem;
     border-radius: 5px;
@@ -104,6 +101,7 @@
       width: 30vw;
       height: 10vw;
       margin: auto 0;
+      max-width: 50%;
     }
   }
 }
@@ -189,7 +187,7 @@
       margin-bottom: 0.5rem;
       font-family: "Avenir Next Demi";
       font-size: 0.8rem;
-      color: $mercury;
+      color: $silver;
       @include tablet {
         display: none;
       }
