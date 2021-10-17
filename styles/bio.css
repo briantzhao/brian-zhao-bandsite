@@ -626,6 +626,7 @@ footer {
 @media (min-width: 768px) {
   .comments__formatting {
     margin-left: 6rem;
+    margin-right: 6rem;
   }
 }
 @media (min-width: 1280px) {
@@ -772,7 +773,7 @@ footer {
     width: 90%;
   }
   .comments__text p {
-    font-size: 0.9745rem;
+    font-size: 0.875rem;
   }
 }
 @media (min-width: 768px) and (min-width: 1280px) {

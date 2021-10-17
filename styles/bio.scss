@@ -245,6 +245,7 @@
   &__formatting {
     @include tablet {
       margin-left: 6rem;
+      margin-right: 6rem;
     }
     @include desktop {
       width: 40%;
@@ -385,7 +386,7 @@
     @include tablet {
       width: 90%;
       & p {
-        font-size: 0.9745rem;
+        font-size: 0.875rem;
         @include desktop {
           font-size: 0.85rem;
         }
