@@ -42,7 +42,13 @@ const shows = [
     location: "San Francisco, CA",
   },
 ];
+const apiURL = "https://project-1-api.herokuapp.com/";
 
+let apiKey;
+axios.get(`${apiURL}register`).then((response) => {
+  apiKey = response.data.api_key;
+  console.log(apiKey);
+});
 //link code to the main tag
 const main = document.querySelector("main");
 
