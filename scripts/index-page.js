@@ -1,33 +1,52 @@
 //array of pre-loaded comments (stores new comments later)
-let comments = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    noProfile: true,
-    quote:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    noProfile: true,
-    quote:
-      "I feel blessed to have seen them in person. What a comment! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    noProfile: true,
-    quote:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+// let comments = [
+//   {
+//     name: "Connor Walton",
+//     date: "02/17/2021",
+//     noProfile: true,
+//     quote:
+//       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+//   },
+//   {
+//     name: "Emilie Beach",
+//     date: "01/09/2021",
+//     noProfile: true,
+//     quote:
+//       "I feel blessed to have seen them in person. What a comment! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+//   },
+//   {
+//     name: "Miles Acosta",
+//     date: "12/20/2020",
+//     noProfile: true,
+//     quote:
+//       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+//   },
+// ];
+//get API URL
+const apiURL = "https://project-1-api.herokuapp.com/";
 
+//grab API Key
+let apiKey;
+axios
+  .get(`${apiURL}register`)
+  .then((response) => {
+    apiKey = response.data.api_key;
+    return axios.get(`${apiURL}comments/?api_key=${apiKey}`);
+  })
+  //create shows after getting key
+  .then((response) => {
+    const comments = response.data;
+    console.log(comments);
+    createList(comments);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 //grab comments section from HTML
 const commentsList = document.getElementById("comments__content");
 
 //create initial list of comments
-createList(comments);
+// createList(comments);
 function createList(comments) {
   for (let i = 0; i < comments.length; i++) {
     displayComment(comments[i]);
@@ -45,19 +64,20 @@ function displayComment(comment) {
   content.appendChild(picSec);
 
   //determines if comment was auto-generated (noProfile), or user-generated
-  if (comment.noProfile) {
-    pic.classList.add("comments__profile");
-  } else {
-    pic.classList.add("comments__form__profile");
-  }
+  // if (comment.noProfile) {
+  //   pic.classList.add("comments__profile");
+  // } else {
+  //   pic.classList.add("comments__form__profile");
+  // }
+  pic.classList.add("comments__profile");
   picSec.appendChild(pic);
   content.appendChild(textSec);
   textSec.classList.add("comments__text");
   textSec.appendChild(headSec);
   headSec.classList.add("comments__head-section");
   createChild(headSec, comment, "name");
-  createChild(headSec, comment, "date");
-  createChild(textSec, comment, "quote");
+  createChild(headSec, comment, "timestamp");
+  createChild(textSec, comment, "comment");
   commentsList.appendChild(content);
 }
 
@@ -67,7 +87,7 @@ function createChild(parent, object, key) {
   commentChild.classList.add(`comments__${key}`);
 
   //handles date conversion, function shown at bottom
-  if (key === "date") {
+  if (key === "timestamp") {
     commentChild.innerText = convertDate(object[key]);
   } else {
     commentChild.innerText = object[key];
@@ -147,31 +167,48 @@ function formError(field, error) {
   }
 }
 
-//diving deeper: converts date to relative duration
+// //diving deeper: converts date to relative duration
+// function convertDate(date) {
+//   //get key value date
+//   const month = parseInt(date.substr(0, 2));
+//   const day = parseInt(date.substr(3, 4));
+//   const year = parseInt(date.substr(6));
+//   const d = new Date();
+
+//   //get today's date
+//   const todayMonth = parseInt(d.getMonth()) + 1;
+//   const todayDay = parseInt(d.getDate());
+//   const todayYear = parseInt(d.getFullYear());
+
+//   //calculate days since 0AD
+//   const adDays = day + 30 * (month + 12 * year);
+//   const adToday = todayDay + 30 * (todayMonth + 12 * todayYear);
+//   const diff = adToday - adDays;
+
+//   //check if we should represent in years, months, days, or "Just now"
+//   if (diff / 365 > 1) {
+//     return "Over a year ago";
+//   } else if (diff / 30 > 1) {
+//     return `${Math.round(diff / 30)} months ago`;
+//   } else if (diff > 1) {
+//     return `${diff} days ago`;
+//   }
+//   return "Just now";
+// }
+
 function convertDate(date) {
-  //get key value date
-  const month = parseInt(date.substr(0, 2));
-  const day = parseInt(date.substr(3, 4));
-  const year = parseInt(date.substr(6));
-  const d = new Date();
-
-  //get today's date
-  const todayMonth = parseInt(d.getMonth()) + 1;
-  const todayDay = parseInt(d.getDate());
-  const todayYear = parseInt(d.getFullYear());
-
-  //calculate days since 0AD
-  const adDays = day + 30 * (month + 12 * year);
-  const adToday = todayDay + 30 * (todayMonth + 12 * todayYear);
-  const diff = adToday - adDays;
-
-  //check if we should represent in years, months, days, or "Just now"
-  if (diff / 365 > 1) {
-    return "Over a year ago";
-  } else if (diff / 30 > 1) {
-    return `${Math.round(diff / 30)} months ago`;
-  } else if (diff > 1) {
-    return `${diff} days ago`;
+  d = new Date(Number.parseInt(date));
+  let month;
+  let theDate;
+  if (d.getMonth() + 1 < 10) {
+    month = `0${d.getMonth() + 1}`;
+  } else {
+    month = d.getMonth() + 1;
   }
-  return "Just now";
+  if (d.getDate() < 10) {
+    theDate = `0${d.getDate()}`;
+  } else {
+    theDate = d.getDate();
+  }
+  return `${month}/${theDate}/${d.getFullYear()}`;
 }

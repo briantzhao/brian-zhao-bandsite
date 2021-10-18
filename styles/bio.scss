@@ -417,7 +417,7 @@
   }
 
   //styling for comment date
-  &__date {
+  &__timestamp {
     color: $mercury;
     padding-bottom: 0.5rem;
 
@@ -430,7 +430,7 @@
   }
 
   //styling for comment quote
-  &__quote {
+  &__comment {
     padding-top: 0;
     padding-bottom: 0.5rem;
     width: 100%;

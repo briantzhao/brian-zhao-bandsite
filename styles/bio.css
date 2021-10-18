@@ -807,21 +807,21 @@ footer {
     padding: 0;
   }
 }
-.comments__date {
+.comments__timestamp {
   color: #e1e1e1;
   padding-bottom: 0.5rem;
 }
 @media (min-width: 768px) {
-  .comments__date {
+  .comments__timestamp {
     padding: 1rem 0;
   }
 }
 @media (min-width: 1280px) {
-  .comments__date {
+  .comments__timestamp {
     padding: 0;
   }
 }
-.comments__quote {
+.comments__comment {
   padding-top: 0;
   padding-bottom: 0.5rem;
   width: 100%;
