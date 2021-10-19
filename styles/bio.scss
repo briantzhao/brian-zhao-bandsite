@@ -436,4 +436,18 @@
     width: 100%;
     overflow: hidden;
   }
+  &__btns {
+    @include flex(row, space-between);
+  }
+  &__likes-btn {
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  &__delete {
+    @include dark-section;
+    border-radius: 4px;
+    &:hover {
+      background-color: $bandsite-darkblack;
+    }
+  }
 }

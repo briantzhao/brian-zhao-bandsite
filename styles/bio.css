@@ -826,4 +826,21 @@ footer {
   padding-bottom: 0.5rem;
   width: 100%;
   overflow: hidden;
+}
+.comments__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comments__likes-btn {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+.comments__delete {
+  background-color: #323232;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.comments__delete:hover {
+  background-color: #000000;
 }/*# sourceMappingURL=bio.css.map */

@@ -55,45 +55,91 @@ function createList(comments) {
 
 //turns object into HTML element
 function displayComment(comment) {
-  const content = document.createElement("li");
-  const picSec = document.createElement("div");
-  const pic = document.createElement("div");
-  const textSec = document.createElement("div");
-  const headSec = document.createElement("div");
-  content.classList.add("comments__single");
-  content.appendChild(picSec);
+  const content = createChild(commentsList, null, "single", "li");
+  // const picSec = document.createElement("div");
+  // const pic = document.createElement("div");
+  // const textSec = document.createElement("div");
+  // const headSec = document.createElement("div");
+  // content.classList.add("comments__single");
+  // content.appendChild(picSec);
 
-  //determines if comment was auto-generated (noProfile), or user-generated
-  // if (comment.noProfile) {
-  //   pic.classList.add("comments__profile");
-  // } else {
-  //   pic.classList.add("comments__form__profile");
-  // }
-  pic.classList.add("comments__profile");
-  picSec.appendChild(pic);
-  content.appendChild(textSec);
-  textSec.classList.add("comments__text");
-  textSec.appendChild(headSec);
-  headSec.classList.add("comments__head-section");
+  // //determines if comment was auto-generated (noProfile), or user-generated
+  // // if (comment.noProfile) {
+  // //   pic.classList.add("comments__profile");
+  // // } else {
+  // //   pic.classList.add("comments__form__profile");
+  // // }
+  // pic.classList.add("comments__profile");
+  // picSec.appendChild(pic);
+  // content.appendChild(textSec);
+  // textSec.classList.add("comments__text");
+  // textSec.appendChild(headSec);
+  // headSec.classList.add("comments__head-section");
+  const picSec = createChild(content, null, null, "div");
+  createChild(picSec, null, "profile", "div");
+  const textSec = createChild(content, null, "text", "div");
+  const headSec = createChild(textSec, null, "head-section", "div");
+
   createChild(headSec, comment, "name");
   createChild(headSec, comment, "timestamp");
   createChild(textSec, comment, "comment");
-  commentsList.appendChild(content);
+  const btnSec = createChild(textSec, null, "btns", "div");
+  const likesDisplay = createChild(btnSec, null, "likes-display", "div");
+  const likesBtn = createChild(likesDisplay, null, "likes-btn", "span");
+  likesBtn.innerText = "LIKE";
+  const likesNum = createChild(likesDisplay, comment, "likes", "span");
+  const deleteBtn = createChild(btnSec, null, "delete", "button");
+  deleteBtn.innerText = "DELETE";
+  console.log(comment.id);
+
+  //diving deeper: like button
+  // likesBtn.id = comment.id;
+  // content.id = comment.id;
+  likesBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    axios
+      .put(`${apiURL}comments/${comment.id}/like/?api_key=${apiKey}`)
+      .then((response) => {
+        likesNum.innerText = response.data.likes;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  //diving deeper: delete button
+  deleteBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    axios
+      .delete(`${apiURL}comments/${comment.id}/?api_key=${apiKey}`)
+      .then(() => content.remove())
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+  // commentsList.appendChild(content);
 }
 
 //creates new child and appends to parent
-function createChild(parent, object, key) {
-  const commentChild = document.createElement("p");
-  commentChild.classList.add(`comments__${key}`);
-
+function createChild(parent, object, key, type) {
+  let commentChild;
+  if (type) {
+    commentChild = document.createElement(type);
+  } else {
+    commentChild = document.createElement("p");
+  }
+  if (key) {
+    commentChild.classList.add(`comments__${key}`);
+  }
   //handles date conversion, function shown at bottom
   if (key === "timestamp") {
     commentChild.innerText = convertDate(object[key]);
-  } else {
+  } else if (object) {
     commentChild.innerText = object[key];
   }
   //   commentChild.innerText = object[key]; placeholder for date w/o conversion
   parent.appendChild(commentChild);
+  return commentChild;
 }
 
 //handles form submission
@@ -121,42 +167,55 @@ form.addEventListener("submit", function (event) {
     //constructs new comment object from form submission
     const newComment = {};
     newComment.name = event.target.name.value;
-    newComment.date = todaysDate();
-    newComment.quote = event.target.comment.value;
-
+    // newComment.date = todaysDate();
+    newComment.comment = event.target.comment.value;
+    // -------------------------------------do post here------------------------------------------------------------------------------------------------------------------------------------
     // sets noProfile field to false to tell displayComment that appropriate class should be applied
-    newComment.noProfile = false;
+    // newComment.noProfile = false;
 
-    //adds new comment to existing array
-    comments.unshift(newComment);
+    axios
+      .post(`${apiURL}comments?api_key=${apiKey}`, newComment)
+      .then((response) => {
+        console.log(response);
+        return axios.get(`${apiURL}comments?api_key=${apiKey}`);
+      })
+      .then((response) => {
+        const comments = response.data;
+        comments.unshift(comments.pop());
+        console.log(comments);
+        commentsList.innerHTML = "";
+        createList(comments);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // //clears comments section
+    // clearList();
 
-    //clears comments section
-    clearList();
-
-    //reconstructs comments
-    createList(comments);
+    // //reconstructs comments
+    // createList(comments);
     form.reset();
   }
 });
 
-//renders today's date for new comment
-function todaysDate() {
-  const d = new Date();
-  let month;
-  if (d.getMonth() + 1 < 10) {
-    month = "0" + d.getMonth() + 1;
-  } else {
-    month = d.getMonth() + 1;
-  }
-  return month + "/" + d.getDate() + "/" + d.getFullYear();
-}
+// //renders today's date for new comment
+// function todaysDate() {
+//   const d = new Date();
+//   let month;
+//   if (d.getMonth() + 1 < 10) {
+//     month = "0" + d.getMonth() + 1;
+//   } else {
+//     month = d.getMonth() + 1;
+//   }
+//   return month + "/" + d.getDate() + "/" + d.getFullYear();
+// }
 
-//clears comments list (I wrote this before we learned about innerHTML)
-function clearList() {
-  while (commentsList.lastElementChild) {
-    commentsList.removeChild(commentsList.lastElementChild);
-  }
-}
+// //clears comments list (I wrote this before we learned about innerHTML)
+// function clearList() {
+//   while (commentsList.lastElementChild) {
+//     commentsList.removeChild(commentsList.lastElementChild);
+//   }
+// }
 
 //changes form field to red on error, to standard otherwise
 function formError(field, error) {
@@ -197,7 +256,7 @@ function formError(field, error) {
 // }
 
 function convertDate(date) {
-  d = new Date(Number.parseInt(date));
+  const d = new Date(Number.parseInt(date));
   let month;
   let theDate;
   if (d.getMonth() + 1 < 10) {

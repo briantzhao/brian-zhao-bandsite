@@ -131,7 +131,7 @@ function convertDate(date) {
     "Nov",
     "Dec",
   ];
-  d = new Date(Number.parseInt(date));
+  const d = new Date(Number.parseInt(date));
   let theDate;
   if (d.getDate() < 10) {
     theDate = `0${d.getDate()}`;
