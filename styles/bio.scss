@@ -333,7 +333,7 @@
     //COMMENT button styling
     &__button {
       @include dark-section;
-      border-radius: 4px;
+      @include button;
       height: 2.5rem;
       @include tablet {
         min-width: 9.25rem;
@@ -342,9 +342,6 @@
         position: absolute;
         bottom: 0.1rem;
         right: 0;
-      }
-      &:hover {
-        background-color: $bandsite-darkblack;
       }
     }
   }
@@ -441,13 +438,11 @@
   }
   &__likes-btn {
     margin-right: 0.5rem;
-    cursor: pointer;
+    @include dark-section;
+    @include button;
   }
   &__delete {
     @include dark-section;
-    border-radius: 4px;
-    &:hover {
-      background-color: $bandsite-darkblack;
-    }
+    @include button;
   }
 }

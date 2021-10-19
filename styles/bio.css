@@ -713,7 +713,11 @@ footer {
   background-color: #323232;
   color: #ffffff;
   border-radius: 4px;
+  cursor: pointer;
   height: 2.5rem;
+}
+.comments__form__button:hover {
+  background-color: #000000;
 }
 @media (min-width: 768px) {
   .comments__form__button {
@@ -724,9 +728,6 @@ footer {
     bottom: 0.1rem;
     right: 0;
   }
-}
-.comments__form__button:hover {
-  background-color: #000000;
 }
 .comments__content {
   padding-top: 0;
@@ -834,12 +835,19 @@ footer {
 }
 .comments__likes-btn {
   margin-right: 0.5rem;
+  background-color: #323232;
+  color: #ffffff;
+  border-radius: 4px;
   cursor: pointer;
+}
+.comments__likes-btn:hover {
+  background-color: #000000;
 }
 .comments__delete {
   background-color: #323232;
   color: #ffffff;
   border-radius: 4px;
+  cursor: pointer;
 }
 .comments__delete:hover {
   background-color: #000000;

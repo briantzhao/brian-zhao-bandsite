@@ -85,7 +85,7 @@ function displayComment(comment) {
   createChild(textSec, comment, "comment");
   const btnSec = createChild(textSec, null, "btns", "div");
   const likesDisplay = createChild(btnSec, null, "likes-display", "div");
-  const likesBtn = createChild(likesDisplay, null, "likes-btn", "span");
+  const likesBtn = createChild(likesDisplay, null, "likes-btn", "button");
   likesBtn.innerText = "LIKE";
   const likesNum = createChild(likesDisplay, comment, "likes", "span");
   const deleteBtn = createChild(btnSec, null, "delete", "button");
