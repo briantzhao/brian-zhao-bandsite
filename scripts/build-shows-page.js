@@ -1,48 +1,3 @@
-// //array of shows
-// const shows = [
-//   {
-//     date: "Mon Sept 06 2021",
-//     venue: "Ronald Lane",
-
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Tue Sept 21 2021",
-
-//     venue: "Pier 3 East",
-
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Fri Oct 15 2021",
-
-//     venue: "View Lounge",
-
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Sat Nov 06 2021",
-
-//     venue: "Hyatt Agency",
-
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Fri Nov 26 2021",
-
-//     venue: "Moscow Center",
-
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Wed Dec 15 2021",
-
-//     venue: "Press Club",
-
-//     location: "San Francisco, CA",
-//   },
-// ];
-
 //get API URL
 const apiURL = "https://project-1-api.herokuapp.com/";
 
@@ -54,6 +9,7 @@ axios
     apiKey = response.data.api_key;
     return axios.get(`${apiURL}showdates/?api_key=${apiKey}`);
   })
+
   //create shows after getting key
   .then((response) => {
     const shows = response.data;
@@ -62,6 +18,7 @@ axios
   .catch((error) => {
     console.log(error);
   });
+
 //link code to the main tag
 const main = document.querySelector("main");
 
@@ -85,7 +42,6 @@ const thButton = createChild(tableHeaders, "th", "shows__label");
 const tableBody = createChild(showsTable, "tbody", "shows__body");
 
 // //creates list of shows
-// createList(shows);
 function createList(shows) {
   for (let i = 0; i < shows.length; i++) {
     //create table row and adds selected row class
@@ -116,30 +72,13 @@ function createChild(parent, type, clName) {
 
 //convert date from UNIX timestamp to human-readable
 function convertDate(date) {
-  const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const d = new Date(Number.parseInt(date));
-  let theDate;
-  if (d.getDate() < 10) {
-    theDate = `0${d.getDate()}`;
-  } else {
-    theDate = d.getDate();
-  }
+  const d = new Date(Number(date));
+  const options = {
+    weekday: "short",
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  };
 
-  return `${days[d.getDay()]} ${
-    months[d.getMonth()]
-  } ${theDate} ${d.getFullYear()}`;
+  return d.toLocaleDateString("en-US", options).replace(/,/g, "");
 }
