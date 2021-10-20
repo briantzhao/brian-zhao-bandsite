@@ -218,7 +218,7 @@ footer {
 }
 
 //div added for margin purposes
-.footer--responsive {
+.bottom-nav--responsive {
   position: relative;
   margin: 0 1rem;
 
@@ -236,7 +236,7 @@ footer {
 }
 
 //styling for footer BANDSITE logo
-.footer__logo {
+.bottom-nav__logo {
   @extend .nav__logo;
   margin-bottom: 0.5rem;
 
@@ -255,7 +255,7 @@ footer {
 }
 
 //styling for footer social links section
-.footer__social {
+.bottom-nav__social {
   width: 50%;
 
   //reconfigure to row for tablet width and greater
@@ -301,7 +301,7 @@ footer {
 }
 
 //styling for footer contact section
-.footer__contact {
+.bottom-nav__contact {
   padding-bottom: 2rem;
 
   //update to row for tablet width and greater
@@ -352,7 +352,7 @@ footer {
 }
 
 //styling for copyright details
-.footer__copyright-details {
+.bottom-nav__copyright-details {
   padding-top: 0.5rem;
   font-size: 0.6875rem;
 

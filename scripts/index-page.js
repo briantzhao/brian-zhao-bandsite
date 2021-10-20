@@ -2,31 +2,46 @@
 const apiURL = "https://project-1-api.herokuapp.com/";
 
 //grab API Key
-let apiKey;
-axios
-  .get(`${apiURL}register`)
-  .then((response) => {
-    apiKey = response.data.api_key;
-    return axios.get(`${apiURL}comments/?api_key=${apiKey}`);
-  })
+const apiKey = "2b520fc3-667b-4bd3-ac89-da88cdb78e25";
 
-  //create shows after getting key
-  .then((response) => {
-    const comments = response.data;
-    createList(comments);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-//grab comments section from HTML
-const commentsList = document.getElementById("comments__content");
-
-//create initial list of comments
-function createList(comments) {
-  for (let i = 0; i < comments.length; i++) {
-    displayComment(comments[i]);
+//converts date to human-readable format
+function convertDate(date) {
+  const d = new Date(Number(date));
+  let month;
+  let theDate;
+  if (d.getMonth() + 1 < 10) {
+    month = `0${d.getMonth() + 1}`;
+  } else {
+    month = d.getMonth() + 1;
   }
+  if (d.getDate() < 10) {
+    theDate = `0${d.getDate()}`;
+  } else {
+    theDate = d.getDate();
+  }
+  return `${month}/${theDate}/${d.getFullYear()}`;
+}
+
+//creates new child and appends to parent
+function createChild(parent, object, key, type) {
+  let commentChild;
+  if (type) {
+    commentChild = document.createElement(type);
+  } else {
+    commentChild = document.createElement("p");
+  }
+  if (key) {
+    commentChild.classList.add(`comments__${key}`);
+  }
+
+  //handles date conversion, function shown at bottom
+  if (key === "timestamp") {
+    commentChild.innerText = convertDate(object[key]);
+  } else if (object) {
+    commentChild.innerText = object[key];
+  }
+  parent.appendChild(commentChild);
+  return commentChild;
 }
 
 //turns object into HTML element
@@ -72,26 +87,42 @@ function displayComment(comment) {
   });
 }
 
-//creates new child and appends to parent
-function createChild(parent, object, key, type) {
-  let commentChild;
-  if (type) {
-    commentChild = document.createElement(type);
-  } else {
-    commentChild = document.createElement("p");
-  }
-  if (key) {
-    commentChild.classList.add(`comments__${key}`);
-  }
+//create shows after getting key
+axios
+  .get(`${apiURL}comments/?api_key=${apiKey}`)
+  .then((response) => {
+    const comments = response.data;
+    comments.sort(function (a, b) {
+      let key1 = a.timestamp;
+      let key2 = b.timestamp;
+      if (key1 > key2) {
+        return -1;
+      } else if (key1 < key2) {
+        return 1;
+      }
+      return 0;
+    });
+    createList(comments);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-  //handles date conversion, function shown at bottom
-  if (key === "timestamp") {
-    commentChild.innerText = convertDate(object[key]);
-  } else if (object) {
-    commentChild.innerText = object[key];
+//grab comments section from HTML
+const commentsList = document.getElementById("comments__content");
+
+//create initial list of comments
+function createList(comments) {
+  comments.forEach((comment) => displayComment(comment));
+}
+
+//changes form field to red on error, to standard otherwise
+function formError(field, error) {
+  if (error) {
+    field.style.borderColor = "#D22D2D";
+  } else {
+    field.style.borderColor = "#e1e1e1";
   }
-  parent.appendChild(commentChild);
-  return commentChild;
 }
 
 //handles form submission
@@ -142,8 +173,6 @@ form.addEventListener("submit", function (event) {
           return 0;
         });
 
-        console.log(comments);
-
         //clear comments list
         commentsList.innerHTML = "";
 
@@ -158,30 +187,3 @@ form.addEventListener("submit", function (event) {
     form.reset();
   }
 });
-
-//changes form field to red on error, to standard otherwise
-function formError(field, error) {
-  if (error) {
-    field.style.borderColor = "#D22D2D";
-  } else {
-    field.style.borderColor = "#e1e1e1";
-  }
-}
-
-//converts date to human-readable format
-function convertDate(date) {
-  const d = new Date(Number(date));
-  let month;
-  let theDate;
-  if (d.getMonth() + 1 < 10) {
-    month = `0${d.getMonth() + 1}`;
-  } else {
-    month = d.getMonth() + 1;
-  }
-  if (d.getDate() < 10) {
-    theDate = `0${d.getDate()}`;
-  } else {
-    theDate = d.getDate();
-  }
-  return `${month}/${theDate}/${d.getFullYear()}`;
-}

@@ -180,7 +180,7 @@ a {
     margin: 0 auto;
   }
 }
-.nav__logo, .footer__logo {
+.nav__logo, .bottom-nav__logo {
   max-height: 1.25rem;
   max-width: 7.5rem;
   margin-top: 1.5rem;
@@ -265,28 +265,28 @@ footer {
   }
 }
 
-.footer--responsive {
+.bottom-nav--responsive {
   position: relative;
   margin: 0 1rem;
 }
 @media (min-width: 768px) {
-  .footer--responsive {
+  .bottom-nav--responsive {
     margin: 0 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  .footer--responsive {
+  .bottom-nav--responsive {
     width: 63.75rem;
     margin: 0 auto;
     padding-top: 2.25rem;
   }
 }
 
-.footer__logo {
+.bottom-nav__logo {
   margin-bottom: 0.5rem;
 }
 @media (min-width: 768px) {
-  .footer__logo {
+  .bottom-nav__logo {
     position: absolute;
     top: 1.5rem;
     right: 0;
@@ -294,16 +294,16 @@ footer {
   }
 }
 @media (min-width: 1280px) {
-  .footer__logo {
+  .bottom-nav__logo {
     top: 3.75rem;
   }
 }
 
-.footer__social {
+.bottom-nav__social {
   width: 50%;
 }
 @media (min-width: 768px) {
-  .footer__social {
+  .bottom-nav__social {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -312,46 +312,46 @@ footer {
   }
 }
 @media (min-width: 1280px) {
-  .footer__social {
+  .bottom-nav__social {
     width: 40%;
   }
 }
-.footer__social-header {
+.bottom-nav__social-header {
   width: 100%;
 }
-.footer__social-icons {
+.bottom-nav__social-icons {
   width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 @media (min-width: 768px) {
-  .footer__social-icons {
+  .bottom-nav__social-icons {
     width: 50%;
     margin-top: 0.5rem;
   }
 }
 @media (min-width: 1280px) {
-  .footer__social-icons {
+  .bottom-nav__social-icons {
     width: 55%;
   }
 }
 @media (min-width: 768px) {
-  .footer__social-img {
+  .bottom-nav__social-img {
     width: 120%;
   }
 }
 @media (min-width: 1280px) {
-  .footer__social-img {
+  .bottom-nav__social-img {
     width: 150%;
   }
 }
 
-.footer__contact {
+.bottom-nav__contact {
   padding-bottom: 2rem;
 }
 @media (min-width: 768px) {
-  .footer__contact {
+  .bottom-nav__contact {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -360,44 +360,44 @@ footer {
   }
 }
 @media (min-width: 1280px) {
-  .footer__contact {
+  .bottom-nav__contact {
     width: 75%;
   }
 }
-.footer__contact-card {
+.bottom-nav__contact-card {
   padding: 0;
 }
-.footer__contact-name {
+.bottom-nav__contact-name {
   padding-bottom: 0;
   font-family: "Avenir Next Demi";
 }
 @media (min-width: 768px) {
-  .footer__contact-name {
+  .bottom-nav__contact-name {
     padding-top: 0;
   }
 }
-.footer__contact-assoc {
+.bottom-nav__contact-assoc {
   font-family: "Avenir Next Demi";
 }
-.footer__contact-assoc, .footer__contact-other, .footer__contact-email {
+.bottom-nav__contact-assoc, .bottom-nav__contact-other, .bottom-nav__contact-email {
   padding-top: 0;
 }
 @media (min-width: 768px) {
-  .footer__contact-assoc, .footer__contact-other, .footer__contact-email {
+  .bottom-nav__contact-assoc, .bottom-nav__contact-other, .bottom-nav__contact-email {
     padding-bottom: 2rem;
   }
 }
-.footer__contact-email__mailto {
+.bottom-nav__contact-email__mailto {
   text-decoration: none;
   color: inherit;
 }
 
-.footer__copyright-details {
+.bottom-nav__copyright-details {
   padding-top: 0.5rem;
   font-size: 0.6875rem;
 }
 @media (min-width: 768px) {
-  .footer__copyright-details {
+  .bottom-nav__copyright-details {
     font-size: 0.9rem;
   }
 }

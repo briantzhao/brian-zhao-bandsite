@@ -1,23 +1,8 @@
 //get API URL
 const apiURL = "https://project-1-api.herokuapp.com/";
 
-//grab API Key
-let apiKey;
-axios
-  .get(`${apiURL}register`)
-  .then((response) => {
-    apiKey = response.data.api_key;
-    return axios.get(`${apiURL}showdates/?api_key=${apiKey}`);
-  })
-
-  //create shows after getting key
-  .then((response) => {
-    const shows = response.data;
-    createList(shows);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// //grab API Key
+const apiKey = "2b520fc3-667b-4bd3-ac89-da88cdb78e25";
 
 //link code to the main tag
 const main = document.querySelector("main");
@@ -41,27 +26,6 @@ thLocation.innerText = "LOCATION";
 const thButton = createChild(tableHeaders, "th", "shows__label");
 const tableBody = createChild(showsTable, "tbody", "shows__body");
 
-// //creates list of shows
-function createList(shows) {
-  for (let i = 0; i < shows.length; i++) {
-    //create table row and adds selected row class
-    // const tableRow = createChild(showsTable, "tr", "shows__single");
-    const tableRow = createChild(tableBody, "tr", "shows__single");
-    tableRow.addEventListener("click", (event) => {
-      tableRow.classList.toggle("shows__single--selected");
-    });
-    const tdDate = createChild(tableRow, "td", "shows__date");
-    tdDate.innerText = convertDate(shows[i].date);
-    const tdVenue = createChild(tableRow, "td", "shows__venue");
-    tdVenue.innerText = shows[i].place;
-    const tdLocation = createChild(tableRow, "td", "shows__location");
-    tdLocation.innerText = shows[i].location;
-    const tdButton = createChild(tableRow, "td", "shows__button");
-    const button = createChild(tdButton, "button", "shows__btn");
-    button.innerText = "BUY TICKETS";
-  }
-}
-
 //function to create a new child
 function createChild(parent, type, clName) {
   const newChild = document.createElement(type);
@@ -79,6 +43,36 @@ function convertDate(date) {
     day: "2-digit",
     year: "numeric",
   };
-
   return d.toLocaleDateString("en-US", options).replace(/,/g, "");
 }
+
+//creates list of shows
+function createList(shows) {
+  shows.forEach((show) => {
+    //create table row and adds selected row class
+    const tableRow = createChild(tableBody, "tr", "shows__single");
+    tableRow.addEventListener("click", (event) => {
+      tableRow.classList.toggle("shows__single--selected");
+    });
+    const tdDate = createChild(tableRow, "td", "shows__date");
+    tdDate.innerText = convertDate(show.date);
+    const tdVenue = createChild(tableRow, "td", "shows__venue");
+    tdVenue.innerText = show.place;
+    const tdLocation = createChild(tableRow, "td", "shows__location");
+    tdLocation.innerText = show.location;
+    const tdButton = createChild(tableRow, "td", "shows__button");
+    const button = createChild(tdButton, "button", "shows__btn");
+    button.innerText = "BUY TICKETS";
+  });
+}
+
+//create shows after getting key
+axios
+  .get(`${apiURL}showdates/?api_key=${apiKey}`)
+  .then((response) => {
+    const shows = response.data;
+    createList(shows);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
