@@ -262,8 +262,8 @@
     //profile picture styling
     &__profile {
       @include profile-pic;
-      background-image: url(../assets/images/Mohan-muruge.jpg);
-      background-size: cover;
+      object-fit: cover;
+      object-position: left;
       margin-top: 1.5rem;
       @include tablet {
         height: 3rem;
@@ -362,7 +362,7 @@
     }
   }
 
-  //styling for profile picture
+  //styling for blank profile picture
   &__profile {
     @include profile-pic;
     background-color: $mercury;

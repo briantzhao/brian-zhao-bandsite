@@ -646,8 +646,10 @@ footer {
   height: 2.25rem;
   width: 2.25rem;
   border-radius: 50%;
-  background-image: url(../assets/images/Mohan-muruge.jpg);
-  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
   margin-top: 1.5rem;
 }
 @media (min-width: 768px) {
