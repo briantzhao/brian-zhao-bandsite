@@ -48,7 +48,7 @@ function createChild(parent, object, key, type) {
 function displayComment(comment) {
   const content = createChild(commentsList, null, "single", "li");
   const picSec = createChild(content, null, null, "div");
-  const pic = createChild(picSec, null, "profile", "img");
+  const pic = createChild(picSec, null, "profile", "div");
   // pic.alt = "blank profile picture";
   const textSec = createChild(content, null, "text", "article");
   const headSec = createChild(textSec, null, "head-section", "div");
