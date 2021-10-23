@@ -50,7 +50,7 @@ function displayComment(comment) {
   const picSec = createChild(content, null, null, "div");
   const pic = createChild(picSec, null, "profile", "img");
   // pic.alt = "blank profile picture";
-  const textSec = createChild(content, null, "text", "div");
+  const textSec = createChild(content, null, "text", "article");
   const headSec = createChild(textSec, null, "head-section", "div");
   createChild(headSec, comment, "name");
   createChild(headSec, comment, "timestamp");
